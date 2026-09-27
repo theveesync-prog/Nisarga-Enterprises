@@ -1,156 +1,88 @@
 "use client";
 
-import { ArrowRight, Award } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowRight, Award, Users, TrainFront } from "lucide-react";
 import { FOUNDING_YEAR } from "@/lib/constants";
+import EventIllustration from "@/components/illustrations/EventIllustration";
+import Reveal from "@/components/ui/Reveal";
 
 export default function Hero() {
-  const [revealed, setRevealed] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <section
-      className="bg-white"
-      style={{ paddingTop: "5.5rem", paddingBottom: "3rem" }}
-      aria-label="Hero — Nisarga Publicity"
-    >
-      <div
-        className="hidden lg:block relative overflow-hidden"
-        style={{
-          marginLeft: "2.5rem",
-          marginRight: "2.5rem",
-          borderRadius: "2rem",
-          minHeight: "620px",
-          background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)",
-          boxShadow: "0 25px 70px -20px rgba(99, 102, 241, 0.25), 0 8px 24px -8px rgba(0,0,0,0.10)",
-        }}
-      >
-        {/* Content Area */}
-        <div className="relative z-10 flex flex-col justify-center px-14 py-16 max-w-2xl">
-          <div
-            className="space-y-6"
-            style={{
-              opacity: revealed ? 1 : 0.3,
-              transform: revealed ? "translateY(0)" : "translateY(20px)",
-              transition: "all 0.6s cubic-bezier(0.23, 1, 0.320, 1)",
-            }}
-          >
-            <div className="flex items-center gap-2">
-              <Award size={16} className="text-white" />
-              <span className="text-white/90 text-sm font-semibold tracking-wide uppercase">
-                Coastal Karnataka&apos;s Advertising &amp; Events Authority — Since {FOUNDING_YEAR}
-              </span>
-            </div>
-
-            <h1 className="text-4xl xl:text-5xl font-bold text-white leading-tight">
-              Three Decades Building the Moments Karnataka Remembers.
-            </h1>
-
-            <p className="text-white/85 text-lg max-w-xl">
-              Nisarga Publicity is the agency of record behind Coastal Karnataka&apos;s largest public
-              activations, its official railway and transit advertising rights, and its most
-              demanding brand launches. One partner. Every medium. National-grade execution,
-              delivered locally.
-            </p>
-
-            <div className="flex gap-4 pt-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-[#6366f1] rounded-full font-semibold hover:shadow-lg transition-all"
-              >
-                Start a Conversation
-                <ArrowRight size={16} />
-              </a>
-              <a
-                href="#capabilities"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all"
-              >
-                See Our Capability
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 right-0 -translate-y-1/2">
-            <div
-              className="w-96 h-96 bg-white/10 rounded-full blur-3xl"
-              style={{ animation: "pulse 4s ease-in-out infinite" }}
-            />
-          </div>
-          <div className="absolute top-1/3 right-24">
-            <div
-              className="w-64 h-64 bg-white/20 rounded-full blur-2xl"
-              style={{ animation: "pulse 6s ease-in-out infinite" }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Version */}
-      <div className="lg:hidden px-4 pt-8 pb-4">
-        <div
-          className="space-y-6 text-center"
-          style={{
-            opacity: revealed ? 1 : 0.3,
-            transform: revealed ? "translateY(0)" : "translateY(20px)",
-            transition: "all 0.6s cubic-bezier(0.23, 1, 0.320, 1)",
-          }}
-        >
-          <div className="flex justify-center">
-            <div className="flex items-center gap-2 bg-[#6366f1]/10 px-4 py-2 rounded-full">
-              <Award size={16} className="text-[#6366f1]" />
-              <span className="text-[#6366f1] text-xs font-semibold uppercase tracking-wide">
-                Since {FOUNDING_YEAR}
-              </span>
-            </div>
+    <section className="bg-white pt-24 pb-12 px-4" aria-label="Hero — Nisarga Publicity">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        {/* Copy */}
+        <Reveal>
+          <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 mb-6">
+            <Award size={15} className="text-[#6366f1]" />
+            <span className="text-[#1f2937] text-xs font-semibold tracking-wide uppercase">
+              Advertising &amp; Events Authority Since {FOUNDING_YEAR}
+            </span>
           </div>
 
-          <h1 className="text-3xl font-bold text-[#1f2937] leading-tight">
-            Three Decades Building the Moments Karnataka Remembers.
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1f2937] leading-tight mb-5">
+            Building the moments <span className="text-gradient">Karnataka remembers.</span>
           </h1>
 
-          <p className="text-gray-600 text-base max-w-md mx-auto">
-            Nisarga Publicity is the agency of record behind Coastal Karnataka&apos;s largest public
-            activations, official railway and transit advertising rights, and its most demanding
-            brand launches. One partner. Every medium.
+          <p className="text-gray-600 text-lg max-w-lg mb-8">
+            One agency. Every medium — print, outdoor, broadcast, events. National-grade
+            execution, delivered locally for three decades.
           </p>
 
-          <div className="flex flex-col gap-3 pt-4">
+          <div className="flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white rounded-full font-semibold hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-white font-semibold btn-primary"
             >
               Start a Conversation
               <ArrowRight size={16} />
             </a>
             <a
               href="#capabilities"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-[#6366f1] text-[#6366f1] rounded-full font-semibold hover:bg-[#6366f1]/5 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-[#1f2937] border border-gray-200 hover:border-[#6366f1]/40 hover:bg-[#6366f1]/5 transition-colors"
             >
               See Our Capability
             </a>
           </div>
-        </div>
-      </div>
+        </Reveal>
 
-      <style jsx>{`
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.5;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.8;
-            transform: scale(1.1);
-          }
-        }
-      `}</style>
+        {/* Floating glass visual */}
+        <Reveal delay={150}>
+          <div className="relative">
+            <div
+              className="relative overflow-hidden rounded-[2rem]"
+              style={{ boxShadow: "0 30px 80px -24px rgba(99, 102, 241, 0.3)" }}
+            >
+              <EventIllustration variant="crowd" className="w-full h-auto" />
+            </div>
+
+            {/* Floating stat chips */}
+            <div
+              className="glass-chip absolute -top-6 -left-6 px-5 py-4 float-slow hidden sm:block"
+              style={{ ["--float-rotate" as string]: "-3deg" }}
+            >
+              <div className="flex items-center gap-2">
+                <Users size={18} className="text-[#6366f1]" />
+                <div>
+                  <div className="text-lg font-bold text-[#1f2937] leading-none">100K+</div>
+                  <div className="text-[11px] text-gray-500">single-event reach</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="glass-chip absolute -bottom-6 -right-4 px-5 py-4 float-slower hidden sm:block"
+              style={{ ["--float-rotate" as string]: "2deg" }}
+            >
+              <div className="flex items-center gap-2">
+                <TrainFront size={18} className="text-[#ec4899]" />
+                <div>
+                  <div className="text-sm font-bold text-[#1f2937] leading-none">Authorized</div>
+                  <div className="text-[11px] text-gray-500">Railways &amp; KSRTC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

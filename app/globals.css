@@ -102,6 +102,78 @@
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.75);
   }
+
+  /* Floating glass card — the core surface for the glassmorphism system */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 60px -20px rgba(99, 102, 241, 0.2), 0 4px 16px -4px rgba(0, 0, 0, 0.04);
+    border-radius: 1.75rem;
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.35s ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 70px -18px rgba(99, 102, 241, 0.28), 0 8px 20px -6px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Small floating glass chip — badges/stats layered over illustrations */
+  .glass-chip {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.15);
+    border-radius: 1.25rem;
+  }
+
+  .glass-card-dark {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 1.75rem;
+  }
+
+  .float-slow {
+    animation: float 7s ease-in-out infinite;
+  }
+  .float-slower {
+    animation: float 9s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--float-rotate, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--float-rotate, 0deg)); }
+}
+
+@keyframes blob-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.12); }
+}
+
+/* ─── Scroll Reveal ────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .float-slow, .float-slower {
+    animation: none;
+  }
 }
 
 /* ─── Base Styles ──────────────────────────────────────────── */

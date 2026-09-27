@@ -1,60 +1,67 @@
 import { ShieldCheck, Users, Wind } from "lucide-react";
+import EventIllustration from "@/components/illustrations/EventIllustration";
+import Reveal from "@/components/ui/Reveal";
 
 export default function ProofOfScale() {
   return (
     <section className="py-20 px-4 bg-[#f9fafb]" id="proof-of-scale">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#6366f1]/10 px-4 py-2 rounded-full mb-4">
-            <span className="text-[#6366f1] text-sm font-semibold uppercase tracking-wide">
-              Proof of Scale
-            </span>
-          </div>
-          <h2 className="text-4xl font-bold text-[#1f2937] mb-4">
+        <Reveal className="text-center mb-14">
+          <div className="section-label justify-center mb-3">Proof of Scale</div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937]">
             Built for the Scale Global Brands Expect
           </h2>
+        </Reveal>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <Reveal>
+            <div className="glass-card overflow-hidden h-full flex flex-col">
+              <div className="relative h-44">
+                <EventIllustration variant="crowd" className="w-full h-full" />
+                <div className="glass-chip absolute bottom-4 left-4 px-4 py-2.5 flex items-center gap-2">
+                  <Users size={16} className="text-[#6366f1]" />
+                  <span className="text-lg font-bold text-[#1f2937]">100,000+</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-[#1f2937] mb-1.5">IAF 50th Anniversary Air Show</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Organized with the DK District Administration for the Suryakiran Aerobatics
+                  Team — one of Mangaluru&apos;s largest-ever public events.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="glass-card overflow-hidden h-full flex flex-col">
+              <div className="relative h-44">
+                <EventIllustration variant="balloon" className="w-full h-full" />
+                <div className="glass-chip absolute bottom-4 left-4 px-4 py-2.5 flex items-center gap-2">
+                  <Wind size={16} className="text-[#ec4899]" />
+                  <span className="text-sm font-bold text-[#1f2937]">Regional First</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-[#1f2937] mb-1.5">Hot Air Balloon Show</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Coastal Karnataka&apos;s first, staged during Karavali Utsav — no local
+                  precedent, delivered without one.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 mb-8">
-          <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-2xl">
-              <Users size={26} className="text-white" />
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-[#1f2937]">100,000+</div>
-              <div className="text-gray-500 text-sm">crowd at a single activation</div>
-            </div>
+        <Reveal delay={200}>
+          <div className="flex items-start gap-3 max-w-2xl mx-auto text-center justify-center">
+            <ShieldCheck size={20} className="text-[#6366f1] flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 leading-relaxed">
+              Government-level logistics, security and permits — handled as routine, not a
+              special request.
+            </p>
           </div>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            When the Indian Air Force marked its 50th anniversary with the elite Suryakiran
-            Aerobatics Team, the DK District Administration entrusted Nisarga Publicity to
-            organize the show — one of the largest outdoor public events in Mangaluru&apos;s
-            history, drawing a crowd of over 100,000.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 mb-8">
-          <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-2xl">
-              <Wind size={26} className="text-white" />
-            </div>
-            <div className="text-2xl font-bold text-[#1f2937]">A Regional First</div>
-          </div>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            We also brought Coastal Karnataka its first-ever Hot Air Balloon Show, staged during
-            Karavali Utsav, the region&apos;s flagship annual festival — an activation with no
-            local precedent, delivered without one.
-          </p>
-        </div>
-
-        <div className="flex items-start gap-4 max-w-3xl mx-auto">
-          <ShieldCheck size={24} className="text-[#6366f1] flex-shrink-0 mt-1" />
-          <p className="text-gray-600 text-lg leading-relaxed">
-            This is the operational grade a premium brand needs from a regional partner:
-            government-level logistics, security and permit management, handled as a matter of
-            course, not as a special request.
-          </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
