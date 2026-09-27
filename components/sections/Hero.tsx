@@ -1,10 +1,9 @@
 "use client";
 
 import { ArrowRight, Sparkles } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ export default function Hero() {
 
   return (
     <section
-      ref={heroRef}
       className="bg-white"
       style={{ paddingTop: "5.5rem", paddingBottom: "3rem" }}
       aria-label="Hero — Event Management Platform"
@@ -25,7 +23,6 @@ export default function Hero() {
           marginLeft: "2.5rem",
           marginRight: "2.5rem",
           borderRadius: "2rem",
-          backgroundColor: "#ffffff",
           height: "620px",
           background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)",
           boxShadow: "0 25px 70px -20px rgba(99, 102, 241, 0.25), 0 8px 24px -8px rgba(0,0,0,0.10)",

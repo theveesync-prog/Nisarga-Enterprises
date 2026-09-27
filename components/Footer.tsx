@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 import { CONTACT_EMAIL, CONTACT_PHONE, BUSINESS_ADDRESS, SOCIAL_LINKS } from "@/lib/constants";
 
@@ -25,11 +26,16 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
             <ul className="space-y-2">
-              {["About", "Services", "Events", "Blog", "Contact"].map((link) => (
-                <li key={link}>
-                  <a href={`/${link.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {link}
-                  </a>
+              {[
+                { label: "Events", href: "/#events" },
+                { label: "Why Us", href: "/#why-us" },
+                { label: "FAQ", href: "/#faq" },
+                { label: "Contact", href: "/#contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -41,9 +47,9 @@ export default function Footer() {
             <ul className="space-y-2">
               {["Corporate Events", "Weddings", "Conferences", "Social Celebrations"].map((type) => (
                 <li key={type}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link href="/#events" className="text-gray-400 hover:text-white transition-colors text-sm">
                     {type}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -95,19 +101,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+        <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; {currentYear} Nisarga Enterprises. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-            <a href="/cookies" className="hover:text-white transition-colors">
-              Cookie Policy
-            </a>
-          </div>
         </div>
       </div>
     </footer>

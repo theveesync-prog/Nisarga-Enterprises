@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 interface EventType {
@@ -18,7 +19,7 @@ const eventTypes: EventType[] = [
     description: "Professional conferences, seminars, team building activities, and corporate celebrations.",
     image: "🏢",
     tag: "Business",
-    href: "/events/corporate",
+    href: "/#contact",
   },
   {
     id: "weddings",
@@ -26,7 +27,7 @@ const eventTypes: EventType[] = [
     description: "Dream weddings crafted with precision. From intimate ceremonies to grand celebrations.",
     image: "💒",
     tag: "Personal",
-    href: "/events/weddings",
+    href: "/#contact",
   },
   {
     id: "conferences",
@@ -34,7 +35,7 @@ const eventTypes: EventType[] = [
     description: "Large-scale conferences with keynotes, workshops, networking, and multimedia experiences.",
     image: "🎤",
     tag: "Professional",
-    href: "/events/conferences",
+    href: "/#contact",
   },
   {
     id: "social",
@@ -42,7 +43,7 @@ const eventTypes: EventType[] = [
     description: "Birthdays, anniversaries, reunions, and all special occasions deserve special attention.",
     image: "🎉",
     tag: "Social",
-    href: "/events/social",
+    href: "/#contact",
   },
 ];
 
@@ -66,7 +67,7 @@ export default function EventGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {eventTypes.map((event) => (
-            <a
+            <Link
               key={event.id}
               href={event.href}
               className="group relative overflow-hidden rounded-3xl card-hover bg-gradient-to-br from-white to-gray-50 border border-gray-200 p-8 flex flex-col justify-between min-h-80"
@@ -96,7 +97,7 @@ export default function EventGrid() {
 
               {/* Gradient Overlay on Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 to-[#ec4899]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-3xl" />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
