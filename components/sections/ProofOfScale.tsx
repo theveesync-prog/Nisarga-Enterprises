@@ -9,7 +9,7 @@ export default function ProofOfScale() {
         <Reveal className="text-center mb-14">
           <div className="section-label justify-center mb-3">Proof of Scale</div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937]">
-            Built for the Scale Global Brands Expect
+            Built for the Scale Global Brands <em className="accent">Expect</em>
           </h2>
         </Reveal>
 
@@ -19,7 +19,7 @@ export default function ProofOfScale() {
               <div className="relative h-44">
                 <EventIllustration variant="crowd" className="w-full h-full" />
                 <div className="glass-chip absolute bottom-4 left-4 px-4 py-2.5 flex items-center gap-2">
-                  <Users size={16} className="text-[#6366f1]" />
+                  <Users size={16} className="text-[#b52b2c]" />
                   <span className="text-lg font-bold text-[#1f2937]">100,000+</span>
                 </div>
               </div>
@@ -38,7 +38,7 @@ export default function ProofOfScale() {
               <div className="relative h-44">
                 <EventIllustration variant="balloon" className="w-full h-full" />
                 <div className="glass-chip absolute bottom-4 left-4 px-4 py-2.5 flex items-center gap-2">
-                  <Wind size={16} className="text-[#ec4899]" />
+                  <Wind size={16} className="text-[#c8983f]" />
                   <span className="text-sm font-bold text-[#1f2937]">Regional First</span>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function ProofOfScale() {
 
         <Reveal delay={200}>
           <div className="flex items-start gap-3 max-w-2xl mx-auto text-center justify-center">
-            <ShieldCheck size={20} className="text-[#6366f1] flex-shrink-0 mt-0.5" />
+            <ShieldCheck size={20} className="text-[#b52b2c] flex-shrink-0 mt-0.5" />
             <p className="text-gray-600 leading-relaxed">
               Government-level logistics, security and permits — handled as routine, not a
               special request.

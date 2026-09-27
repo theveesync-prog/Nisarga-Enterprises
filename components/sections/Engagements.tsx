@@ -20,7 +20,7 @@ export default function Engagements() {
         <Reveal className="text-center mb-14">
           <div className="section-label justify-center mb-3">Where We Work</div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] max-w-2xl mx-auto">
-            Trusted Across Corporate, Government &amp; Private Engagements
+            Trusted Across Corporate, Government &amp; Private <em className="accent">Engagements</em>
           </h2>
         </Reveal>
 
@@ -34,7 +34,7 @@ export default function Engagements() {
                     <EventIllustration variant={category.illustration} className="w-full h-full" />
                   </div>
                   <div className="p-5">
-                    <div className="mb-3 mx-auto inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-lg">
+                    <div className="mb-3 mx-auto inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-[#b52b2c] to-[#c8983f] rounded-lg">
                       <Icon size={18} className="text-white" />
                     </div>
                     <h3 className="text-sm font-semibold text-[#1f2937]">{category.title}</h3>

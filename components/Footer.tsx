@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, BUSINESS_ADDRESS, FOUNDING_YEAR } from "@/lib/constants";
 
@@ -22,7 +23,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div>
-              <h3 className="text-xl font-bold text-gradient mb-2">Nisarga Publicity</h3>
+              <Image
+                src="/logo/nisarga-lockup.png"
+                alt="Nisarga Publicity"
+                width={796}
+                height={390}
+                className="h-16 w-auto mb-3"
+              />
               <p className="text-gray-400 text-sm">
                 Coastal Karnataka&apos;s advertising and event management authority, since{" "}
                 {FOUNDING_YEAR}.
@@ -63,19 +70,19 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-lg">Get In Touch</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <Mail size={18} className="text-[#6366f1] mt-1 flex-shrink-0" />
+                <Mail size={18} className="text-[#b52b2c] mt-1 flex-shrink-0" />
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-white transition-colors text-sm break-all">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={18} className="text-[#6366f1] mt-1 flex-shrink-0" />
+                <Phone size={18} className="text-[#b52b2c] mt-1 flex-shrink-0" />
                 <a href={`tel:${CONTACT_PHONE_TEL}`} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {CONTACT_PHONE}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#6366f1] mt-1 flex-shrink-0" />
+                <MapPin size={18} className="text-[#b52b2c] mt-1 flex-shrink-0" />
                 <span className="text-gray-400 text-sm">
                   {BUSINESS_ADDRESS.streetAddress}<br />
                   {BUSINESS_ADDRESS.addressLocality} – {BUSINESS_ADDRESS.postalCode}
