@@ -1,8 +1,15 @@
-"use client";
-
 import Link from "next/link";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
-import { CONTACT_EMAIL, CONTACT_PHONE, BUSINESS_ADDRESS, SOCIAL_LINKS } from "@/lib/constants";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, BUSINESS_ADDRESS, FOUNDING_YEAR } from "@/lib/constants";
+
+const quickLinks = [
+  { label: "Legacy", href: "/#legacy" },
+  { label: "Capabilities", href: "/#capabilities" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const channels = ["Print & Publication", "Outdoor & Transit", "Broadcast & Screen", "Events & Activation"];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,9 +22,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div>
-              <h3 className="text-2xl font-bold text-gradient mb-2">Nisarga</h3>
+              <h3 className="text-xl font-bold text-gradient mb-2">Nisarga Publicity</h3>
               <p className="text-gray-400 text-sm">
-                Professional event management and planning platform for all your special moments.
+                Coastal Karnataka&apos;s advertising and event management authority, since{" "}
+                {FOUNDING_YEAR}.
               </p>
             </div>
           </div>
@@ -26,12 +34,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
             <ul className="space-y-2">
-              {[
-                { label: "Events", href: "/#events" },
-                { label: "Why Us", href: "/#why-us" },
-                { label: "FAQ", href: "/#faq" },
-                { label: "Contact", href: "/#contact" },
-              ].map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
                     {link.label}
@@ -41,14 +44,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Event Types */}
+          {/* Channels */}
           <div>
-            <h4 className="font-semibold mb-4 text-lg">Event Types</h4>
+            <h4 className="font-semibold mb-4 text-lg">What We Do</h4>
             <ul className="space-y-2">
-              {["Corporate Events", "Weddings", "Conferences", "Social Celebrations"].map((type) => (
-                <li key={type}>
-                  <Link href="/#events" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {type}
+              {channels.map((channel) => (
+                <li key={channel}>
+                  <Link href="/#capabilities" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    {channel}
                   </Link>
                 </li>
               ))}
@@ -61,13 +64,13 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-[#6366f1] mt-1 flex-shrink-0" />
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-white transition-colors text-sm break-all">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-[#6366f1] mt-1 flex-shrink-0" />
-                <a href={`tel:${CONTACT_PHONE}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href={`tel:${CONTACT_PHONE_TEL}`} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {CONTACT_PHONE}
                 </a>
               </li>
@@ -75,34 +78,16 @@ export default function Footer() {
                 <MapPin size={18} className="text-[#6366f1] mt-1 flex-shrink-0" />
                 <span className="text-gray-400 text-sm">
                   {BUSINESS_ADDRESS.streetAddress}<br />
-                  {BUSINESS_ADDRESS.addressLocality}, {BUSINESS_ADDRESS.addressRegion}
+                  {BUSINESS_ADDRESS.addressLocality} – {BUSINESS_ADDRESS.postalCode}
                 </span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="border-t border-gray-700 pt-8 mb-8">
-          <div className="flex justify-center gap-6">
-            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#6366f1] transition-colors">
-              <Linkedin size={20} />
-            </a>
-            <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#6366f1] transition-colors">
-              <Twitter size={20} />
-            </a>
-            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#6366f1] transition-colors">
-              <Instagram size={20} />
-            </a>
-            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#6366f1] transition-colors">
-              <Facebook size={20} />
-            </a>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} Nisarga Enterprises. All rights reserved.</p>
+          <p>&copy; {currentYear} Nisarga Publicity. All rights reserved.</p>
         </div>
       </div>
     </footer>

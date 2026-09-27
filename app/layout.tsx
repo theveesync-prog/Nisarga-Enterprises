@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, SITE_NAME, SITE_LEGAL_NAME, BUSINESS_ADDRESS } from "@/lib/constants";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_LEGAL_NAME,
+  BUSINESS_ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE_TEL,
+  FOUNDING_YEAR,
+} from "@/lib/constants";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -19,22 +27,24 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const TITLE = "Nisarga Publicity | Premium Advertising & Event Management Company in Mangaluru Since 1996";
+const DESCRIPTION =
+  "Coastal Karnataka's full-service advertising and event management agency since 1996. Authorized railway & transit advertiser. The partner of record for government, corporate and large-scale brand activations in Mangaluru & Udupi.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Event Management Platform | Nisarga Enterprises",
-    template: "%s | Nisarga Events",
+    default: TITLE,
+    template: "%s | Nisarga Publicity",
   },
-  description:
-    "Nisarga Enterprises - Professional event management platform for corporate events, weddings, conferences, and celebrations. Plan, manage, and execute memorable events.",
+  description: DESCRIPTION,
   keywords: [
-    "event management",
-    "event planning",
-    "corporate events",
-    "wedding events",
-    "conference management",
-    "event booking",
-    "event organizer",
+    "event management company Mangalore",
+    "advertising agency Mangalore",
+    "outdoor advertising Udupi",
+    "corporate event management Karnataka",
+    "railway station branding India",
+    "premium event agency coastal Karnataka",
   ],
   authors: [{ name: SITE_LEGAL_NAME }],
   robots: {
@@ -48,9 +58,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Event Management Platform | Nisarga Enterprises",
-    description:
-      "Professional event management and planning platform for all types of events.",
+    title: TITLE,
+    description: DESCRIPTION,
     type: "website",
     locale: "en_IN",
     url: SITE_URL,
@@ -58,9 +67,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Event Management Platform | Nisarga Enterprises",
-    description:
-      "Professional event management and planning platform for all types of events.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
   alternates: {
     canonical: SITE_URL,
@@ -75,16 +83,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${dmSans.variable}`}>
       <head>
-        {/* Organization Schema */}
+        {/* AdvertisingAgency Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "AdvertisingAgency",
               name: SITE_LEGAL_NAME,
               url: SITE_URL,
-              description: "Professional event management platform",
+              description: DESCRIPTION,
+              foundingDate: `${FOUNDING_YEAR}`,
+              email: CONTACT_EMAIL,
+              telephone: CONTACT_PHONE_TEL,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: BUSINESS_ADDRESS.streetAddress,
