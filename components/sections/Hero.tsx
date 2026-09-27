@@ -1,7 +1,8 @@
 "use client";
 
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Award } from "lucide-react";
 import { useEffect, useState } from "react";
+import { FOUNDING_YEAR } from "@/lib/constants";
 
 export default function Hero() {
   const [revealed, setRevealed] = useState(false);
@@ -15,7 +16,7 @@ export default function Hero() {
     <section
       className="bg-white"
       style={{ paddingTop: "5.5rem", paddingBottom: "3rem" }}
-      aria-label="Hero — Event Management Platform"
+      aria-label="Hero — Nisarga Publicity"
     >
       <div
         className="hidden lg:block relative overflow-hidden"
@@ -23,16 +24,13 @@ export default function Hero() {
           marginLeft: "2.5rem",
           marginRight: "2.5rem",
           borderRadius: "2rem",
-          height: "620px",
+          minHeight: "620px",
           background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)",
           boxShadow: "0 25px 70px -20px rgba(99, 102, 241, 0.25), 0 8px 24px -8px rgba(0,0,0,0.10)",
         }}
       >
         {/* Content Area */}
-        <div
-          className="absolute inset-0 flex flex-col justify-center px-12"
-          style={{ width: "50%" }}
-        >
+        <div className="relative z-10 flex flex-col justify-center px-14 py-16 max-w-2xl">
           <div
             className="space-y-6"
             style={{
@@ -42,61 +40,60 @@ export default function Hero() {
             }}
           >
             <div className="flex items-center gap-2">
-              <Sparkles size={16} className="text-white" />
-              <span className="text-white/90 text-sm font-semibold tracking-wide">
-                Professional Event Management
+              <Award size={16} className="text-white" />
+              <span className="text-white/90 text-sm font-semibold tracking-wide uppercase">
+                Coastal Karnataka&apos;s Advertising &amp; Events Authority — Since {FOUNDING_YEAR}
               </span>
             </div>
 
-            <h1 className="text-5xl font-bold text-white leading-tight">
-              Create Unforgettable Events
+            <h1 className="text-4xl xl:text-5xl font-bold text-white leading-tight">
+              Three Decades Building the Moments Karnataka Remembers.
             </h1>
 
-            <p className="text-white/80 text-lg max-w-md">
-              From corporate gatherings to dream weddings, we handle every detail with precision and creativity.
+            <p className="text-white/85 text-lg max-w-xl">
+              Nisarga Publicity is the agency of record behind Coastal Karnataka&apos;s largest public
+              activations, its official railway and transit advertising rights, and its most
+              demanding brand launches. One partner. Every medium. National-grade execution,
+              delivered locally.
             </p>
 
             <div className="flex gap-4 pt-4">
               <a
-                href="#events"
+                href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-[#6366f1] rounded-full font-semibold hover:shadow-lg transition-all"
               >
-                Explore Events
+                Start a Conversation
                 <ArrowRight size={16} />
               </a>
               <a
-                href="#contact"
+                href="#capabilities"
                 className="inline-flex items-center gap-2 px-6 py-3.5 border border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all"
               >
-                Get Started
+                See Our Capability
               </a>
             </div>
           </div>
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute inset-0" style={{ width: "50%", left: "50%" }}>
-          <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 right-0 -translate-y-1/2">
             <div
               className="w-96 h-96 bg-white/10 rounded-full blur-3xl"
-              style={{
-                animation: "pulse 4s ease-in-out infinite",
-              }}
+              style={{ animation: "pulse 4s ease-in-out infinite" }}
             />
           </div>
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute top-1/3 right-24">
             <div
               className="w-64 h-64 bg-white/20 rounded-full blur-2xl"
-              style={{
-                animation: "pulse 6s ease-in-out infinite",
-              }}
+              style={{ animation: "pulse 6s ease-in-out infinite" }}
             />
           </div>
         </div>
       </div>
 
       {/* Mobile Version */}
-      <div className="lg:hidden px-4 pt-8 pb-12">
+      <div className="lg:hidden px-4 pt-8 pb-4">
         <div
           className="space-y-6 text-center"
           style={{
@@ -107,45 +104,37 @@ export default function Hero() {
         >
           <div className="flex justify-center">
             <div className="flex items-center gap-2 bg-[#6366f1]/10 px-4 py-2 rounded-full">
-              <Sparkles size={16} className="text-[#6366f1]" />
-              <span className="text-[#6366f1] text-sm font-semibold">
-                Professional Event Management
+              <Award size={16} className="text-[#6366f1]" />
+              <span className="text-[#6366f1] text-xs font-semibold uppercase tracking-wide">
+                Since {FOUNDING_YEAR}
               </span>
             </div>
           </div>
 
-          <h1 className="text-4xl font-bold text-[#1f2937] leading-tight">
-            Create Unforgettable Events
+          <h1 className="text-3xl font-bold text-[#1f2937] leading-tight">
+            Three Decades Building the Moments Karnataka Remembers.
           </h1>
 
-          <p className="text-gray-600 text-lg max-w-md mx-auto">
-            From corporate gatherings to dream weddings, we handle every detail with precision and creativity.
+          <p className="text-gray-600 text-base max-w-md mx-auto">
+            Nisarga Publicity is the agency of record behind Coastal Karnataka&apos;s largest public
+            activations, official railway and transit advertising rights, and its most demanding
+            brand launches. One partner. Every medium.
           </p>
 
           <div className="flex flex-col gap-3 pt-4">
             <a
-              href="#events"
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white rounded-full font-semibold hover:shadow-lg transition-all"
             >
-              Explore Events
+              Start a Conversation
               <ArrowRight size={16} />
             </a>
             <a
-              href="#contact"
+              href="#capabilities"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-[#6366f1] text-[#6366f1] rounded-full font-semibold hover:bg-[#6366f1]/5 transition-all"
             >
-              Get Started
+              See Our Capability
             </a>
-          </div>
-        </div>
-
-        {/* Mobile Image Placeholder */}
-        <div className="mt-12 h-80 bg-gradient-to-b from-[#6366f1]/20 to-[#ec4899]/20 rounded-3xl flex items-center justify-center">
-          <div className="text-center text-gray-500">
-            <div className="w-24 h-24 mx-auto mb-4 bg-[#6366f1]/10 rounded-full flex items-center justify-center">
-              <Sparkles size={40} className="text-[#6366f1]" />
-            </div>
-            <p>Featured Events</p>
           </div>
         </div>
       </div>

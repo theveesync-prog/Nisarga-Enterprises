@@ -1,17 +1,21 @@
 import Hero from "@/components/sections/Hero";
-import Features from "@/components/sections/Features";
-import EventGrid from "@/components/EventGrid";
-import FAQ from "@/components/sections/FAQ";
-import Contact from "@/components/sections/Contact";
+import Legacy from "@/components/sections/Legacy";
+import Capabilities from "@/components/sections/Capabilities";
+import ProofOfScale from "@/components/sections/ProofOfScale";
+import WhyUs from "@/components/sections/WhyUs";
+import Engagements from "@/components/sections/Engagements";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <EventGrid />
-      <Features />
-      <FAQ />
-      <Contact />
+      <Legacy />
+      <Capabilities />
+      <ProofOfScale />
+      <WhyUs />
+      <Engagements />
+      <FinalCTA />
     </main>
   );
 }
