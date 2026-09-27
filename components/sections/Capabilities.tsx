@@ -48,7 +48,7 @@ export default function Capabilities() {
         <Reveal className="text-center mb-14">
           <div className="section-label justify-center mb-3">Our Capability</div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-3">
-            One Agency. Every Channel.
+            One Agency. Every <em className="accent">Channel.</em>
           </h2>
           <p className="text-gray-600 max-w-xl mx-auto">
             No handoffs, no patchwork of vendors — a single command center across every medium.
@@ -64,7 +64,7 @@ export default function Capabilities() {
                   <div className="relative h-36">
                     <EventIllustration variant={channel.illustration} className="w-full h-full" />
                     <div className="absolute top-4 left-4 flex items-center justify-center w-11 h-11 rounded-xl bg-white/90 backdrop-blur shadow-sm">
-                      <Icon size={20} className="text-[#6366f1]" />
+                      <Icon size={20} className="text-[#b52b2c]" />
                     </div>
                   </div>
                   <div className="p-6">

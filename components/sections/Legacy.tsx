@@ -18,7 +18,7 @@ export default function Legacy() {
         <Reveal delay={100}>
           <div className="section-label mb-3">Our Story</div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-4">
-            A Legacy Built Over Three Decades
+            A Legacy Built Over Three <em className="accent">Decades</em>
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             We&apos;re not a startup chasing trends — we&apos;re the incumbent brands call when a

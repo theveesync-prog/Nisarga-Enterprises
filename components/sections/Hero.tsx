@@ -12,14 +12,14 @@ export default function Hero() {
         {/* Copy */}
         <Reveal>
           <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 mb-6">
-            <Award size={15} className="text-[#6366f1]" />
+            <Award size={15} className="text-[#b52b2c]" />
             <span className="text-[#1f2937] text-xs font-semibold tracking-wide uppercase">
               Advertising &amp; Events Authority Since {FOUNDING_YEAR}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-[#1f2937] leading-tight mb-5">
-            Building the moments <span className="text-gradient">Karnataka remembers.</span>
+            Building the moments Karnataka <em className="accent">remembers.</em>
           </h1>
 
           <p className="text-gray-600 text-lg max-w-lg mb-8">
@@ -37,7 +37,7 @@ export default function Hero() {
             </a>
             <a
               href="#capabilities"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-[#1f2937] border border-gray-200 hover:border-[#6366f1]/40 hover:bg-[#6366f1]/5 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-[#1f2937] border border-gray-200 hover:border-[#b52b2c]/40 hover:bg-[#b52b2c]/5 transition-colors"
             >
               See Our Capability
             </a>
@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="relative">
             <div
               className="relative overflow-hidden rounded-[2rem]"
-              style={{ boxShadow: "0 30px 80px -24px rgba(99, 102, 241, 0.3)" }}
+              style={{ boxShadow: "0 30px 80px -24px rgba(181, 43, 44, 0.3)" }}
             >
               <EventIllustration variant="crowd" className="w-full h-auto" />
             </div>
@@ -60,7 +60,7 @@ export default function Hero() {
               style={{ ["--float-rotate" as string]: "-3deg" }}
             >
               <div className="flex items-center gap-2">
-                <Users size={18} className="text-[#6366f1]" />
+                <Users size={18} className="text-[#b52b2c]" />
                 <div>
                   <div className="text-lg font-bold text-[#1f2937] leading-none">100K+</div>
                   <div className="text-[11px] text-gray-500">single-event reach</div>
@@ -73,7 +73,7 @@ export default function Hero() {
               style={{ ["--float-rotate" as string]: "2deg" }}
             >
               <div className="flex items-center gap-2">
-                <TrainFront size={18} className="text-[#ec4899]" />
+                <TrainFront size={18} className="text-[#c8983f]" />
                 <div>
                   <div className="text-sm font-bold text-[#1f2937] leading-none">Authorized</div>
                   <div className="text-[11px] text-gray-500">Railways &amp; KSRTC</div>

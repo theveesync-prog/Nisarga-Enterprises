@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-/* ─── Brand Theme (Event Management) ──────────────────────────── */
+/* ─── Brand Theme (from the Nisarga logo) ──────────────────────── */
 @theme {
-  /* Colors — Event-focused palette */
-  --color-brand-primary:     #6366f1;
-  --color-brand-primary-dark: #4f46e5;
-  --color-brand-accent:      #ec4899;
-  --color-brand-accent-light: #f472b6;
-  --color-success:           #10b981;
-  --color-warning:           #f59e0b;
-  --color-dark:              #1f2937;
-  --color-light:             #f9fafb;
+  /* Colors — pulled from the logo: deep red wordmark, gold compass */
+  --color-brand-primary:      #b52b2c;
+  --color-brand-primary-dark: #8f2020;
+  --color-brand-accent:       #c8983f;
+  --color-brand-accent-light: #e8cf9a;
+  --color-success:            #10b981;
+  --color-warning:            #c8983f;
+  --color-dark:               #1f2937;
+  --color-light:               #f9fafb;
 
   /* Fonts — loaded via next/font in app/layout.tsx */
   --font-display: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
@@ -21,7 +21,7 @@
 /* ─── Custom Utilities ─────────────────────────────────────── */
 @layer utilities {
   .btn-primary {
-    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    background: linear-gradient(135deg, #b52b2c, #8f2020);
     color: #ffffff;
     font-weight: 600;
     transition: opacity 0.2s ease, transform 0.2s ease;
@@ -32,7 +32,7 @@
   }
 
   .btn-accent {
-    background: linear-gradient(135deg, #ec4899, #f472b6);
+    background: linear-gradient(135deg, #c8983f, #d6b46c);
     color: #ffffff;
     font-weight: 600;
     transition: opacity 0.2s ease, transform 0.2s ease;
@@ -43,10 +43,14 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #6366f1, #ec4899);
+    background: linear-gradient(135deg, #b52b2c, #8f2020);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .text-gold {
+    color: #c8983f;
   }
 
   .section-label {
@@ -58,11 +62,11 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #6366f1;
+    color: #b52b2c;
   }
   .section-label::before {
     content: "●";
-    color: #ec4899;
+    color: #c8983f;
   }
 
   .card-hover {
@@ -70,7 +74,7 @@
   }
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 50px -12px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 20px 50px -12px rgba(181, 43, 44, 0.15);
   }
 
   .card-minimal {
@@ -109,13 +113,13 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 20px 60px -20px rgba(99, 102, 241, 0.2), 0 4px 16px -4px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 60px -20px rgba(181, 43, 44, 0.18), 0 4px 16px -4px rgba(0, 0, 0, 0.04);
     border-radius: 1.75rem;
     transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.35s ease;
   }
   .glass-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 28px 70px -18px rgba(99, 102, 241, 0.28), 0 8px 20px -6px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 28px 70px -18px rgba(181, 43, 44, 0.25), 0 8px 20px -6px rgba(0, 0, 0, 0.06);
   }
 
   /* Small floating glass chip — badges/stats layered over illustrations */
@@ -190,18 +194,32 @@ body {
 }
 
 a {
-  color: #6366f1;
+  color: #b52b2c;
   text-decoration: none;
 }
 
 a:hover {
-  color: #4f46e5;
+  color: #8f2020;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
+}
+
+/* Italic emphasis for the last word(s) of a heading, per the logo's script feel */
+em.accent {
+  font-style: italic;
+  color: #b52b2c;
+  font-family: var(--font-display);
+}
+
+/* Same treatment, gold instead of red — for headings on a dark/colored background */
+em.accent-gold {
+  font-style: italic;
+  color: #e8cf9a;
+  font-family: var(--font-display);
 }
 
 h1 {

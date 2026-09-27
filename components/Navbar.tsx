@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -43,10 +44,18 @@ export default function Navbar() {
         {/* ─── Logo ─────────────────────────────────── */}
         <Link
           href="/"
-          className="flex items-center flex-shrink-0 font-bold text-lg"
+          className="flex items-center gap-2 flex-shrink-0"
           aria-label="Nisarga Publicity — Home"
         >
-          <span className="text-gradient">Nisarga Publicity</span>
+          <Image
+            src="/logo/nisarga-mark.png"
+            alt=""
+            width={220}
+            height={220}
+            priority
+            className="h-8 w-8"
+          />
+          <span className="font-bold text-base text-[#b52b2c]">Nisarga</span>
         </Link>
 
         {/* ─── Desktop Nav ──────────────────────────── */}
@@ -55,7 +64,7 @@ export default function Navbar() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="block px-3 py-2 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] transition-colors rounded-full hover:bg-[#6366f1]/5"
+                className="block px-3 py-2 text-sm font-medium text-[#1f2937] hover:text-[#b52b2c] transition-colors rounded-full hover:bg-[#b52b2c]/5"
               >
                 {link.label}
               </Link>
@@ -73,15 +82,15 @@ export default function Navbar() {
 
         {/* ─── Mobile Hamburger ─────────────────────── */}
         <button
-          className="md:hidden p-2 rounded-full hover:bg-[#6366f1]/5 transition-colors"
+          className="md:hidden p-2 rounded-full hover:bg-[#b52b2c]/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
           {mobileOpen ? (
-            <X size={22} className="text-[#6366f1]" />
+            <X size={22} className="text-[#b52b2c]" />
           ) : (
-            <Menu size={22} className="text-[#6366f1]" />
+            <Menu size={22} className="text-[#b52b2c]" />
           )}
         </button>
       </nav>
@@ -108,7 +117,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="block px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] hover:bg-[#6366f1]/5 rounded-xl transition-colors"
+              className="block px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#b52b2c] hover:bg-[#b52b2c]/5 rounded-xl transition-colors"
             >
               {link.label}
             </Link>
