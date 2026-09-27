@@ -12,10 +12,10 @@
   --color-dark:              #1f2937;
   --color-light:             #f9fafb;
 
-  /* Fonts */
-  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-  --font-sans:    "DM Sans", system-ui, -apple-system, sans-serif;
-  --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  /* Fonts — loaded via next/font in app/layout.tsx */
+  --font-display: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
+  --font-sans:    var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
 }
 
 /* ─── Custom Utilities ─────────────────────────────────────── */

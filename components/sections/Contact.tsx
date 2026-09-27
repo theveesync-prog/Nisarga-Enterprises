@@ -31,10 +31,10 @@ export default function Contact() {
               </span>
             </div>
             <h2 className="text-4xl font-bold text-[#1f2937] mb-6">
-              Let's Plan Your Next Event
+              Let&apos;s Plan Your Next Event
             </h2>
             <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-              Have questions? Our team is ready to help you create the perfect event. Reach out today and let's discuss your vision.
+              Have questions? Our team is ready to help you create the perfect event. Reach out today and let&apos;s discuss your vision.
             </p>
 
             <div className="space-y-8">

@@ -1,30 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const eventLinks = [
-  { label: "Corporate Events", href: "/events/corporate" },
-  { label: "Weddings", href: "/events/weddings" },
-  { label: "Conferences", href: "/events/conferences" },
-  { label: "Social Celebrations", href: "/events/social" },
-];
+import { CONTACT_WHATSAPP } from "@/lib/constants";
 
 const navLinks = [
-  { label: "Discover Events", href: "/#events" },
-  { label: "Event Types", href: "/events", hasDropdown: true },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Events", href: "/#events" },
+  { label: "Why Us", href: "/#why-us" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
 ];
 
-const WHATSAPP_CONTACT = "https://wa.me/919845292411?text=Hi%2C%20I%27d%20like%20to%20book%20an%20event.";
-
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileEventsOpen, setMobileEventsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,10 +23,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const closeMobile = () => {
-    setMobileOpen(false);
-    setMobileEventsOpen(false);
-  };
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 pt-3 px-4 pointer-events-none">
@@ -55,58 +42,31 @@ export default function Navbar() {
         }}
       >
         {/* ─── Logo ─────────────────────────────────── */}
-        <a
+        <Link
           href="/"
           className="flex items-center flex-shrink-0 font-bold text-xl"
           aria-label="Nisarga Events — Home"
         >
           <span className="text-gradient">Nisarga</span>
-        </a>
+        </Link>
 
         {/* ─── Desktop Nav ──────────────────────────── */}
         <ul className="hidden md:flex items-center gap-1 lg:gap-2">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
-              <li key={link.label} className="relative nav-dropdown-trigger">
-                <a
-                  href="/events"
-                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] transition-colors rounded-full hover:bg-[#6366f1]/5"
-                  aria-haspopup="true"
-                >
-                  {link.label}
-                  <ChevronDown size={13} className="opacity-60" />
-                </a>
-
-                {/* Dropdown */}
-                <div className="nav-dropdown" role="menu">
-                  {eventLinks.map((e) => (
-                    <a
-                      key={e.label}
-                      href={e.href}
-                      role="menuitem"
-                      className="block px-4 py-2.5 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] hover:bg-[#6366f1]/5 rounded-lg transition-colors"
-                    >
-                      {e.label}
-                    </a>
-                  ))}
-                </div>
-              </li>
-            ) : (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="block px-3 py-2 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] transition-colors rounded-full hover:bg-[#6366f1]/5"
-                >
-                  {link.label}
-                </a>
-              </li>
-            )
-          )}
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="block px-3 py-2 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] transition-colors rounded-full hover:bg-[#6366f1]/5"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* ─── Desktop CTA ──────────────────────────── */}
         <a
-          href={WHATSAPP_CONTACT}
+          href={CONTACT_WHATSAPP}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white btn-primary flex-shrink-0"
@@ -150,51 +110,21 @@ export default function Navbar() {
         inert={!mobileOpen}
       >
         <div className="px-4 pt-4 pb-6 space-y-1">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
-              <div key={link.label}>
-                <button
-                  onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
-                  className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] hover:bg-[#6366f1]/5 rounded-xl transition-colors"
-                  aria-expanded={mobileEventsOpen}
-                >
-                  {link.label}
-                  <ChevronDown
-                    size={15}
-                    className={cn("transition-transform duration-200", mobileEventsOpen && "rotate-180")}
-                  />
-                </button>
-                {mobileEventsOpen && (
-                  <div className="ml-4 mt-1 space-y-1 border-l-2 border-[#6366f1]/15 pl-4">
-                    {eventLinks.map((e) => (
-                      <a
-                        key={e.label}
-                        href={e.href}
-                        onClick={closeMobile}
-                        className="block py-2 text-sm font-medium text-[#6b7280] hover:text-[#6366f1] transition-colors"
-                      >
-                        {e.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={closeMobile}
-                className="block px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] hover:bg-[#6366f1]/5 rounded-xl transition-colors"
-              >
-                {link.label}
-              </a>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              onClick={closeMobile}
+              className="block px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#6366f1] hover:bg-[#6366f1]/5 rounded-xl transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
 
           {/* Mobile CTA */}
           <div className="pt-3">
             <a
-              href={WHATSAPP_CONTACT}
+              href={CONTACT_WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobile}
