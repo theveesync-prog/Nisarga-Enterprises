@@ -30,7 +30,7 @@ const channels = [
 
 export default function Capabilities() {
   return (
-    <section className="py-28 px-4 bg-[#f5f1e9]" id="capabilities">
+    <section className="py-28 px-4 bg-white" id="capabilities">
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-14 max-w-lg">
           <h2 className="text-4xl md:text-6xl font-bold text-[#18140f] tracking-tight">

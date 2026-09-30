@@ -13,7 +13,7 @@ const categories: {
 
 export default function Engagements() {
   return (
-    <section className="py-28 px-4 bg-[#efe9dc]" id="engagements">
+    <section className="py-28 px-4 bg-[#f6f6f4]" id="engagements">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#18140f] max-w-2xl mx-auto tracking-tight">
@@ -27,7 +27,7 @@ export default function Engagements() {
             const Icon = category.icon;
             return (
               <Reveal key={category.title} delay={i * 70}>
-                <div className="flex flex-col items-center justify-center gap-3 py-10 px-4 h-full bg-[#fbf9f4] hover:bg-[#a8302f]/[0.05] transition-colors duration-500">
+                <div className="flex flex-col items-center justify-center gap-3 py-10 px-4 h-full bg-white hover:bg-[#a8302f]/[0.05] transition-colors duration-500">
                   <Icon size={26} weight="light" className="text-[#a8302f]" />
                   <h3 className="text-sm font-semibold text-[#18140f] text-center">
                     {category.title}

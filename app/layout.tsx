@@ -32,7 +32,7 @@ const DESCRIPTION =
   "Coastal Karnataka's full-service advertising and event management agency since 1996. Authorized railway & transit advertiser. The partner of record for government, corporate and large-scale brand activations in Mangaluru & Udupi.";
 
 export const viewport: Viewport = {
-  themeColor: "#f5f1e9",
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = {
@@ -113,7 +113,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <div className="grain-overlay" aria-hidden="true" />
         <Navbar />
         {children}
         <Footer />

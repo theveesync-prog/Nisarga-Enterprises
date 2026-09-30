@@ -1,20 +1,32 @@
 "use client";
 
+import { useRef } from "react";
 import { ArrowUpRight, Medal, Users, Train } from "@phosphor-icons/react";
+import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "motion/react";
 import { FOUNDING_YEAR } from "@/lib/constants";
 import HeroVideo from "@/components/ui/HeroVideo";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: videoRef,
+    offset: ["start end", "end start"],
+  });
+  const rawY = useTransform(scrollYProgress, [0, 1], [-40, 90]);
+  const y = useSpring(rawY, { stiffness: 120, damping: 30, mass: 0.4 });
+
   return (
     <section
-      className="bg-[#f5f1e9] pt-36 pb-20 px-4 relative overflow-hidden"
+      className="bg-white pt-40 pb-20 px-4 relative overflow-hidden"
       aria-label="Nisarga Publicity introduction"
     >
       <div className="max-w-6xl mx-auto relative">
         {/* Copy */}
-        <Reveal className="max-w-3xl mb-12">
+        <Reveal className="max-w-3xl mb-14">
           <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 mb-8">
             <Medal size={15} weight="fill" className="text-[#a8302f]" />
             <span className="text-[#4a4237] text-xs font-semibold tracking-wide uppercase">
@@ -46,11 +58,15 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        {/* Horizontal video banner */}
+        {/* Wide-screen hero video, drifting gently as the page scrolls */}
         <Reveal delay={150}>
-          <div className="relative">
-            <div className="bezel-shell">
-              <div className="bezel-core overflow-hidden aspect-[16/9] md:aspect-[21/9]">
+          <motion.div
+            ref={videoRef}
+            className="relative"
+            style={reduce ? undefined : { y }}
+          >
+            <div className="video-frame">
+              <div className="video-frame-core overflow-hidden aspect-[16/9] md:aspect-[21/9]">
                 <HeroVideo src="/video/hero.mp4" className="w-full h-full" />
               </div>
             </div>
@@ -81,7 +97,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Reveal>
       </div>
     </section>

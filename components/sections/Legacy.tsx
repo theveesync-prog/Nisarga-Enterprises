@@ -3,18 +3,16 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function Legacy() {
   return (
-    <section className="py-28 px-4 bg-[#f5f1e9]" id="legacy">
+    <section className="py-28 px-4 bg-[#f6f6f4]" id="legacy">
       <div className="max-w-5xl mx-auto grid md:grid-cols-[220px_1fr] gap-10 items-center">
         <Reveal>
-          <div className="bezel-shell">
-            <div className="bezel-core p-8 text-center">
-              <div className="text-5xl font-bold bg-gradient-to-br from-[#e3605e] to-[#a8302f] bg-clip-text text-transparent mb-1">
-                {FOUNDING_YEAR}
-              </div>
-              <div className="text-[#a89f92] text-sm">Founded by</div>
-              <div className="text-[#f2ede4] text-sm font-semibold mt-1">
-                {FOUNDERS.join(" & ")}
-              </div>
+          <div className="glass-card p-8 text-center">
+            <div className="text-5xl font-bold bg-gradient-to-br from-[#c8403f] to-[#a8302f] bg-clip-text text-transparent mb-1">
+              {FOUNDING_YEAR}
+            </div>
+            <div className="text-[#8a8072] text-sm">Founded by</div>
+            <div className="text-[#18140f] text-sm font-semibold mt-1">
+              {FOUNDERS.join(" & ")}
             </div>
           </div>
         </Reveal>
