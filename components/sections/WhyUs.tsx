@@ -26,7 +26,7 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-28 px-4 bg-[#f5f1e9]" id="why-us">
+    <section className="py-28 px-4 bg-white" id="why-us">
       <div className="max-w-4xl mx-auto">
         <Reveal className="mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#18140f] max-w-lg tracking-tight">

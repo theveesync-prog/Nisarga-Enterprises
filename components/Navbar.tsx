@@ -20,6 +20,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -27,26 +28,17 @@ export default function Navbar() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 pt-3 px-4 pointer-events-none">
+    <header className="fixed top-0 inset-x-0 z-50 pt-4 px-4 pointer-events-none">
       <nav
         className={cn(
-          "max-w-6xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-6 rounded-full pointer-events-auto transition-all duration-500",
+          "glass-nav max-w-6xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-6 rounded-full pointer-events-auto transition-all duration-500",
+          scrolled && "is-scrolled"
         )}
-        style={{
-          background: scrolled ? "rgba(251,249,244,0.92)" : "rgba(251,249,244,0.7)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          border: "1px solid rgba(24,20,15,0.08)",
-          boxShadow: scrolled
-            ? "0 8px 32px rgba(24,20,15,0.08), inset 0 1px 0 rgba(255,255,255,0.6)"
-            : "0 2px 20px rgba(24,20,15,0.05), inset 0 1px 0 rgba(255,255,255,0.5)",
-          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
       >
-        {/* ─── Logo ─────────────────────────────────── */}
+        {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 flex-shrink-0"
+          className="flex items-center gap-2.5 flex-shrink-0"
           aria-label="Nisarga Publicity home"
         >
           <Image
@@ -57,10 +49,10 @@ export default function Navbar() {
             priority
             className="h-8 w-8"
           />
-          <span className="font-bold text-base text-[#18140f]">Nisarga</span>
+          <span className="font-bold text-base text-[#18140f] tracking-tight">Nisarga</span>
         </Link>
 
-        {/* ─── Desktop Nav ──────────────────────────── */}
+        {/* Desktop nav links */}
         <ul className="hidden md:flex items-center gap-1 lg:gap-2">
           {navLinks.map((link) => (
             <li key={link.label}>
@@ -74,12 +66,9 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* ─── Desktop CTA ──────────────────────────── */}
+        {/* Desktop CTA */}
         <Magnetic className="hidden md:inline-block flex-shrink-0">
-          <Link
-            href="/#contact"
-            className="group btn-island btn-primary text-sm font-semibold"
-          >
+          <Link href="/#contact" className="group btn-island btn-primary text-sm font-semibold">
             Start a Conversation
             <span className="btn-island-icon bg-white/15">
               <ArrowUpRight size={16} weight="bold" />
@@ -87,7 +76,7 @@ export default function Navbar() {
           </Link>
         </Magnetic>
 
-        {/* ─── Mobile Hamburger ─────────────────────── */}
+        {/* Mobile hamburger */}
         <button
           className="md:hidden relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-[#18140f]/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -115,19 +104,12 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* ─── Mobile Menu ────────────────────────────── */}
+      {/* Mobile menu */}
       <div
         className={cn(
-          "md:hidden pointer-events-auto mx-4 mt-2 overflow-hidden rounded-2xl transition-all duration-300 ease-in-out",
-          mobileOpen ? "max-h-screen" : "max-h-0"
+          "glass-nav md:hidden pointer-events-auto mx-4 mt-2 overflow-hidden rounded-2xl transition-all duration-300 ease-in-out is-scrolled",
+          mobileOpen ? "max-h-screen" : "max-h-0 border-0"
         )}
-        style={{
-          background: "rgba(251,249,244,0.98)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          border: mobileOpen ? "1px solid rgba(24,20,15,0.08)" : "none",
-          boxShadow: "0 8px 32px rgba(24,20,15,0.1)",
-        }}
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
       >
@@ -148,7 +130,6 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Mobile CTA */}
           <div className="pt-3">
             <Link
               href="/#contact"

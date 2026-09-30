@@ -15,7 +15,7 @@ const CAPABILITY_DECK_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURICompo
 
 export default function FinalCTA() {
   return (
-    <section className="py-28 px-4 bg-[#f5f1e9]" id="contact">
+    <section className="py-28 px-4 bg-white" id="contact">
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <div

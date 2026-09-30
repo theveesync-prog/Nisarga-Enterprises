@@ -5,7 +5,7 @@ import MilestoneStack from "@/components/ui/MilestoneStack";
 
 export default function ProofOfScale() {
   return (
-    <section className="py-28 px-4 bg-[#efe9dc]" id="proof-of-scale">
+    <section className="py-28 px-4 bg-[#f6f6f4]" id="proof-of-scale">
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center mb-16">
           <div className="section-label justify-center mb-3">Proof of Scale</div>
