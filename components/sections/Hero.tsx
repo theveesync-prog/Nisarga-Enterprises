@@ -14,10 +14,7 @@ import HeroVideo from "@/components/ui/HeroVideo";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
 
-const heroVideos = [
-  { src: "/video/hero.mp4", rotate: -90 },
-  { src: "/video/hero-2.mp4", rotate: 0 },
-];
+const heroVideos = [{ src: "/video/hero.mp4" }, { src: "/video/hero-2.mp4" }];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,7 +48,7 @@ export default function Hero() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <HeroVideo src={current.src} className="w-full h-full" rotate={current.rotate} />
+            <HeroVideo src={current.src} className="w-full h-full" />
           </motion.div>
         </AnimatePresence>
       </motion.div>
@@ -66,13 +63,13 @@ export default function Hero() {
       />
 
       {/* Copy */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-40 pb-20 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-28 sm:pt-36 md:pt-40 pb-16 md:pb-20 flex-1 flex flex-col justify-center">
         <Reveal className="max-w-3xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.95] mb-7">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] sm:leading-[0.95] mb-5 sm:mb-7">
             Building the moments Karnataka <em className="accent">remembers.</em>
           </h1>
 
-          <p className="text-white/75 text-lg max-w-lg mb-10">
+          <p className="text-white/75 text-base sm:text-lg max-w-lg mb-8 sm:mb-10">
             One agency. Every medium, print, outdoor, broadcast, events. National-grade
             execution, delivered locally for three decades.
           </p>
