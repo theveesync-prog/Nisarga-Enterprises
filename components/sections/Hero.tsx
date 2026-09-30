@@ -1,16 +1,29 @@
 "use client";
 
-import { useRef } from "react";
-import { ArrowUpRight, Medal } from "@phosphor-icons/react";
-import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "motion/react";
+import { useRef, useState } from "react";
+import { ArrowUpRight, CaretRight, Medal } from "@phosphor-icons/react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+  useSpring,
+  useReducedMotion,
+} from "motion/react";
 import { FOUNDING_YEAR } from "@/lib/constants";
 import HeroVideo from "@/components/ui/HeroVideo";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
 
+const heroVideos = [
+  { src: "/video/hero.mp4", rotate: -90 },
+  { src: "/video/hero-2.mp4", rotate: 0 },
+];
+
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const [index, setIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -18,6 +31,9 @@ export default function Hero() {
   });
   const rawY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const y = useSpring(rawY, { stiffness: 120, damping: 30, mass: 0.4 });
+
+  const current = heroVideos[index];
+  const goNext = () => setIndex((i) => (i + 1) % heroVideos.length);
 
   return (
     <section
@@ -27,7 +43,18 @@ export default function Hero() {
     >
       {/* Full-bleed hero video background */}
       <motion.div className="absolute inset-0 scale-110" style={reduce ? undefined : { y }}>
-        <HeroVideo src="/video/hero.mp4" className="w-full h-full" rotate={-90} />
+        <AnimatePresence>
+          <motion.div
+            key={current.src}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <HeroVideo src={current.src} className="w-full h-full" rotate={current.rotate} />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
       {/* Subtle translucent black scrim for text legibility */}
@@ -73,6 +100,18 @@ export default function Hero() {
           </div>
         </Reveal>
       </div>
+
+      {/* Next-video control */}
+      {heroVideos.length > 1 && (
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label="Show next video"
+          className="hero-video-nav absolute top-1/2 right-4 md:right-8 z-10"
+        >
+          <CaretRight size={18} weight="bold" />
+        </button>
+      )}
     </section>
   );
 }
