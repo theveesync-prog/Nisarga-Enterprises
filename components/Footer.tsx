@@ -16,7 +16,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#1f2937] text-white py-16 px-4 mt-20">
+    <footer className="bg-[#0a0908] text-white py-16 px-4 border-t border-white/8">
       <div className="max-w-6xl mx-auto">
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -70,19 +70,19 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-lg">Get In Touch</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <EnvelopeSimple size={18} weight="fill" className="text-[#b52b2c] mt-1 flex-shrink-0" />
+                <EnvelopeSimple size={18} weight="fill" className="text-[#e3605e] mt-1 flex-shrink-0" />
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-white transition-colors text-sm break-all">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={18} weight="fill" className="text-[#b52b2c] mt-1 flex-shrink-0" />
+                <Phone size={18} weight="fill" className="text-[#e3605e] mt-1 flex-shrink-0" />
                 <a href={`tel:${CONTACT_PHONE_TEL}`} className="text-gray-400 hover:text-white transition-colors text-sm">
                   {CONTACT_PHONE}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={18} weight="fill" className="text-[#b52b2c] mt-1 flex-shrink-0" />
+                <MapPin size={18} weight="fill" className="text-[#e3605e] mt-1 flex-shrink-0" />
                 <span className="text-gray-400 text-sm">
                   {BUSINESS_ADDRESS.streetAddress}<br />
                   {BUSINESS_ADDRESS.addressLocality}, {BUSINESS_ADDRESS.postalCode}
@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-white/8 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; {currentYear} Nisarga Publicity. All rights reserved.</p>
         </div>
       </div>

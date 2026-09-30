@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import {
@@ -30,6 +30,10 @@ const dmSans = DM_Sans({
 const TITLE = "Nisarga Publicity | Premium Advertising & Event Management Company in Mangaluru Since 1996";
 const DESCRIPTION =
   "Coastal Karnataka's full-service advertising and event management agency since 1996. Authorized railway & transit advertiser. The partner of record for government, corporate and large-scale brand activations in Mangaluru & Udupi.";
+
+export const viewport: Viewport = {
+  themeColor: "#0d0b0a",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -109,6 +113,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <div className="grain-overlay" aria-hidden="true" />
         <Navbar />
         {children}
         <Footer />
