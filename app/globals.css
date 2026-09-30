@@ -20,48 +20,55 @@
 }
 
 /* ─── Base Styles ──────────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-}
+/* In @layer base so Tailwind utility classes (text-white, text-[#...],
+   etc.) can still override these defaults on specific elements. Plain
+   unlayered CSS always beats layered CSS in Tailwind v4 regardless of
+   specificity, so without this layer every heading/link with a color
+   utility would silently render in these defaults instead. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background-color: #ffffff;
-  color: #18140f;
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    background-color: #ffffff;
+    color: #18140f;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-::selection {
-  background: rgba(168, 48, 47, 0.18);
-  color: #18140f;
-}
+  ::selection {
+    background: rgba(168, 48, 47, 0.18);
+    color: #18140f;
+  }
 
-a {
-  color: #a8302f;
-  text-decoration: none;
-}
-a:hover {
-  color: #7a1f1f;
-}
+  a {
+    color: #a8302f;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #7a1f1f;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  color: #18140f;
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: #18140f;
+  }
 
-em.accent {
-  font-style: italic;
-  color: #a8302f;
-  font-family: var(--font-display);
-}
-em.accent-gold {
-  font-style: italic;
-  color: #f0dba8;
-  font-family: var(--font-display);
+  em.accent {
+    font-style: italic;
+    color: #a8302f;
+    font-family: var(--font-display);
+  }
+  em.accent-gold {
+    font-style: italic;
+    color: #f0dba8;
+    font-family: var(--font-display);
+  }
 }
 
 /* ─── Utilities ────────────────────────────────────────────── */
