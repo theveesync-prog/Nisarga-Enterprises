@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
 interface HeroVideoProps {
@@ -21,6 +21,22 @@ interface HeroVideoProps {
 export default function HeroVideo({ src, className, rotate = 0 }: HeroVideoProps) {
   const [errored, setErrored] = useState(false);
   const reduce = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (!rotate) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => setSize({ width: el.clientWidth, height: el.clientHeight });
+    update();
+    // Measures the container in real pixels rather than vh/vw, which
+    // drift on mobile as the browser chrome shows/hides — the vh/vw
+    // approach left gaps around the video on phones.
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [rotate]);
 
   if (errored) {
     return (
@@ -34,28 +50,29 @@ export default function HeroVideo({ src, className, rotate = 0 }: HeroVideoProps
   if (rotate) {
     // The source is portrait. Rotating it so it reads as landscape means
     // its own width/height must swap before the rotation is applied, or
-    // it won't fill a landscape frame — sized off the viewport since this
-    // always backs a full-bleed, near-viewport-sized hero.
+    // it won't fill a landscape frame.
     return (
-      <div className={className} style={{ position: "relative", overflow: "hidden" }}>
-        <video
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            width: "100vh",
-            height: "100vw",
-            transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
-            objectFit: "cover",
-          }}
-          src={src}
-          autoPlay={!reduce}
-          muted
-          loop
-          playsInline
-          onError={() => setErrored(true)}
-          aria-hidden="true"
-        />
+      <div ref={containerRef} className={className} style={{ position: "relative", overflow: "hidden" }}>
+        {size.width > 0 && size.height > 0 && (
+          <video
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              width: size.height,
+              height: size.width,
+              transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
+              objectFit: "cover",
+            }}
+            src={src}
+            autoPlay={!reduce}
+            muted
+            loop
+            playsInline
+            onError={() => setErrored(true)}
+            aria-hidden="true"
+          />
+        )}
       </div>
     );
   }

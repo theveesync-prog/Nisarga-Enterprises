@@ -104,11 +104,13 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — glass styling (border/shadow) is only applied
+          while open, so the collapsed panel can never paint a stray
+          hairline under the navbar. */}
       <div
         className={cn(
-          "glass-nav md:hidden pointer-events-auto mx-4 mt-2 overflow-hidden rounded-2xl transition-all duration-300 ease-in-out is-scrolled",
-          mobileOpen ? "max-h-screen" : "max-h-0 border-0"
+          "md:hidden pointer-events-auto mx-4 mt-2 overflow-hidden rounded-2xl transition-all duration-300 ease-in-out",
+          mobileOpen ? "glass-nav is-scrolled max-h-screen" : "max-h-0"
         )}
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
