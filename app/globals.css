@@ -252,6 +252,9 @@
   .marquee-track:hover {
     animation-play-state: paused;
   }
+  .marquee-track.marquee-reverse {
+    animation-direction: reverse;
+  }
 
   /* Magnetic / island button: pill CTA with a nested trailing-icon disc */
   .btn-island {
