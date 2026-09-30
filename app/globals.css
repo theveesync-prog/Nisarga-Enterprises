@@ -228,6 +228,31 @@ em.accent-gold {
     opacity: 1;
   }
 
+  /* Small transparent control for cycling the hero video */
+  .hero-video-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    transform: translateY(-50%);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hero-video-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .hero-video-nav:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
   /* Continuous logo marquee: edge-faded viewport, seamless duplicated
      track, pauses on hover so a visitor can actually read a logo. */
   .marquee-viewport {
