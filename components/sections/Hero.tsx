@@ -2,7 +2,7 @@
 
 import { ArrowUpRight, Medal, Users, Train } from "@phosphor-icons/react";
 import { FOUNDING_YEAR } from "@/lib/constants";
-import CompassMotif from "@/components/illustrations/CompassMotif";
+import HeroVideo from "@/components/ui/HeroVideo";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
 
@@ -12,9 +12,9 @@ export default function Hero() {
       className="bg-[#f5f1e9] pt-36 pb-20 px-4 relative overflow-hidden"
       aria-label="Nisarga Publicity introduction"
     >
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center relative">
+      <div className="max-w-6xl mx-auto relative">
         {/* Copy */}
-        <Reveal>
+        <Reveal className="max-w-3xl mb-12">
           <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 mb-8">
             <Medal size={15} weight="fill" className="text-[#a8302f]" />
             <span className="text-[#4a4237] text-xs font-semibold tracking-wide uppercase">
@@ -22,7 +22,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold text-[#18140f] leading-[0.95] mb-7">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#18140f] leading-[0.95] mb-7">
             Building the moments Karnataka <em className="accent">remembers.</em>
           </h1>
 
@@ -46,15 +46,19 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        {/* Bespoke sculptural compass visual, tied to the real logo mark */}
+        {/* Horizontal video banner */}
         <Reveal delay={150}>
-          <div className="relative aspect-square max-w-md mx-auto">
-            <CompassMotif className="w-full h-full" />
+          <div className="relative">
+            <div className="bezel-shell">
+              <div className="bezel-core overflow-hidden aspect-[16/9] md:aspect-[21/9]">
+                <HeroVideo src="/video/hero.mp4" className="w-full h-full" />
+              </div>
+            </div>
 
             {/* Floating stat chips */}
             <div
-              className="glass-chip absolute top-2 -left-4 px-5 py-4 float-slow hidden sm:block"
-              style={{ ["--float-rotate" as string]: "-3deg" }}
+              className="glass-chip absolute top-4 left-4 md:top-6 md:left-6 px-5 py-4 float-slow"
+              style={{ ["--float-rotate" as string]: "-2deg" }}
             >
               <div className="flex items-center gap-2">
                 <Users size={18} weight="fill" className="text-[#a8302f]" />
@@ -66,7 +70,7 @@ export default function Hero() {
             </div>
 
             <div
-              className="glass-chip absolute bottom-2 -right-4 px-5 py-4 float-slower hidden sm:block"
+              className="glass-chip absolute bottom-4 right-4 md:bottom-6 md:right-6 px-5 py-4 float-slower"
               style={{ ["--float-rotate" as string]: "2deg" }}
             >
               <div className="flex items-center gap-2">
