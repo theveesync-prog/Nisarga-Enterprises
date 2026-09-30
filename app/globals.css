@@ -228,6 +228,25 @@ em.accent-gold {
     opacity: 1;
   }
 
+  /* Continuous logo marquee: edge-faded viewport, seamless duplicated
+     track, pauses on hover so a visitor can actually read a logo. */
+  .marquee-viewport {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 1.75rem;
+    padding: 0 1.75rem;
+    animation: marquee-scroll 36s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
   /* Magnetic / island button: pill CTA with a nested trailing-icon disc */
   .btn-island {
     display: inline-flex;
@@ -261,6 +280,11 @@ em.accent-gold {
   50% { transform: translateY(-14px) rotate(var(--float-rotate, 0deg)); }
 }
 
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ─── Scroll Reveal fallback (JS-driven via motion, this covers
      no-JS / reduced-motion states) ─────────────────────────── */
 .reveal {
@@ -279,6 +303,9 @@ em.accent-gold {
     transition: none;
   }
   .float-slow, .float-slower {
+    animation: none;
+  }
+  .marquee-track {
     animation: none;
   }
 }
