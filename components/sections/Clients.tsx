@@ -34,8 +34,8 @@ export default function Clients() {
             {loop.map((client, i) => (
               <div
                 key={`${client.name}-${i}`}
-                className={`client-tile flex items-center justify-center p-6 flex-shrink-0 ${
-                  client.square ? "w-28 h-28" : "w-40 h-24"
+                className={`client-logo flex items-center justify-center flex-shrink-0 ${
+                  client.square ? "w-32 h-32" : "w-48 h-28"
                 }`}
               >
                 <div className="relative w-full h-full">
@@ -44,7 +44,7 @@ export default function Clients() {
                     alt={client.name}
                     fill
                     className="object-contain"
-                    sizes="200px"
+                    sizes="240px"
                   />
                 </div>
               </div>

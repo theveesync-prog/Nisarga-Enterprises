@@ -200,39 +200,13 @@
     background: #18140f;
   }
 
-  /* Client logo tile: glass surface that lifts and glows on hover,
-     rather than the usual flat static logo strip. */
-  .client-tile {
-    position: relative;
-    border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow:
-      0 20px 45px -28px rgba(24, 20, 15, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  /* Client logo: no card, no shadow — just the mark floating directly
+     on the page, with a light scale-up on hover. */
+  .client-logo {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .client-tile:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow:
-      0 34px 70px -24px rgba(168, 48, 47, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  }
-  .client-tile::after {
-    content: "";
-    position: absolute;
-    inset: -30%;
-    z-index: -1;
-    border-radius: inherit;
-    background: radial-gradient(circle, rgba(184, 134, 58, 0.22), transparent 70%);
-    opacity: 0;
-    filter: blur(24px);
-    transition: opacity 0.5s ease;
-  }
-  .client-tile:hover::after {
-    opacity: 1;
+  .client-logo:hover {
+    transform: scale(1.08);
   }
 
   /* Small transparent control for cycling the hero video */
