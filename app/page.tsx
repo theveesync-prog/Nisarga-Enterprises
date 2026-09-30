@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import Clients from "@/components/sections/Clients";
 import Legacy from "@/components/sections/Legacy";
 import Capabilities from "@/components/sections/Capabilities";
 import ProofOfScale from "@/components/sections/ProofOfScale";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Clients />
       <Legacy />
       <Capabilities />
       <ProofOfScale />
