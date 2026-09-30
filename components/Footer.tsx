@@ -16,7 +16,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0a0908] text-white py-16 px-4 border-t border-white/8">
+    <footer className="bg-[#18140f] text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -30,7 +30,7 @@ export default function Footer() {
                 height={390}
                 className="h-16 w-auto mb-3"
               />
-              <p className="text-gray-400 text-sm">
+              <p className="text-white/50 text-sm">
                 Coastal Karnataka&apos;s advertising and event management authority, since{" "}
                 {FOUNDING_YEAR}.
               </p>
@@ -43,7 +43,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {channels.map((channel) => (
                 <li key={channel}>
-                  <Link href="/#capabilities" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link href="/#capabilities" className="text-white/50 hover:text-white transition-colors text-sm">
                     {channel}
                   </Link>
                 </li>
@@ -71,19 +71,19 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <EnvelopeSimple size={18} weight="fill" className="text-[#e3605e] mt-1 flex-shrink-0" />
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-white transition-colors text-sm break-all">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-white/50 hover:text-white transition-colors text-sm break-all">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={18} weight="fill" className="text-[#e3605e] mt-1 flex-shrink-0" />
-                <a href={`tel:${CONTACT_PHONE_TEL}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                <a href={`tel:${CONTACT_PHONE_TEL}`} className="text-white/50 hover:text-white transition-colors text-sm">
                   {CONTACT_PHONE}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={18} weight="fill" className="text-[#e3605e] mt-1 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">
+                <span className="text-white/50 text-sm">
                   {BUSINESS_ADDRESS.streetAddress}<br />
                   {BUSINESS_ADDRESS.addressLocality}, {BUSINESS_ADDRESS.postalCode}
                 </span>
@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/8 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-white/10 pt-8 text-center text-white/40 text-sm">
           <p>&copy; {currentYear} Nisarga Publicity. All rights reserved.</p>
         </div>
       </div>

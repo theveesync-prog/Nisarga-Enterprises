@@ -33,13 +33,13 @@ export default function Navbar() {
           "max-w-6xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-6 rounded-full pointer-events-auto transition-all duration-500",
         )}
         style={{
-          background: scrolled ? "rgba(13,11,10,0.85)" : "rgba(13,11,10,0.55)",
+          background: scrolled ? "rgba(251,249,244,0.92)" : "rgba(251,249,244,0.7)",
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
-          border: "1px solid rgba(255,255,255,0.08)",
+          border: "1px solid rgba(24,20,15,0.08)",
           boxShadow: scrolled
-            ? "0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)"
-            : "0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)",
+            ? "0 8px 32px rgba(24,20,15,0.08), inset 0 1px 0 rgba(255,255,255,0.6)"
+            : "0 2px 20px rgba(24,20,15,0.05), inset 0 1px 0 rgba(255,255,255,0.5)",
           transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
@@ -57,7 +57,7 @@ export default function Navbar() {
             priority
             className="h-8 w-8"
           />
-          <span className="font-bold text-base text-[#f2ede4]">Nisarga</span>
+          <span className="font-bold text-base text-[#18140f]">Nisarga</span>
         </Link>
 
         {/* ─── Desktop Nav ──────────────────────────── */}
@@ -66,7 +66,7 @@ export default function Navbar() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="block px-3 py-2 text-sm font-medium text-[#cfc7ba] hover:text-white transition-colors rounded-full hover:bg-white/5"
+                className="block px-3 py-2 text-sm font-medium text-[#4a4237] hover:text-[#18140f] transition-colors rounded-full hover:bg-[#18140f]/5"
               >
                 {link.label}
               </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
         <Magnetic className="hidden md:inline-block flex-shrink-0">
           <Link
             href="/#contact"
-            className="group btn-island btn-primary text-sm font-semibold text-white"
+            className="group btn-island btn-primary text-sm font-semibold"
           >
             Start a Conversation
             <span className="btn-island-icon bg-white/15">
@@ -89,7 +89,7 @@ export default function Navbar() {
 
         {/* ─── Mobile Hamburger ─────────────────────── */}
         <button
-          className="md:hidden relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors"
+          className="md:hidden relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-[#18140f]/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -101,7 +101,7 @@ export default function Navbar() {
               transform: mobileOpen ? "rotate(90deg) scale(0.6)" : "rotate(0deg) scale(1)",
             }}
           >
-            <List size={22} className="text-[#f2ede4]" />
+            <List size={22} className="text-[#18140f]" />
           </span>
           <span
             className="absolute transition-all duration-300"
@@ -110,7 +110,7 @@ export default function Navbar() {
               transform: mobileOpen ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0.6)",
             }}
           >
-            <X size={22} className="text-[#f2ede4]" />
+            <X size={22} className="text-[#18140f]" />
           </span>
         </button>
       </nav>
@@ -122,11 +122,11 @@ export default function Navbar() {
           mobileOpen ? "max-h-screen" : "max-h-0"
         )}
         style={{
-          background: "rgba(13,11,10,0.96)",
+          background: "rgba(251,249,244,0.98)",
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
-          border: mobileOpen ? "1px solid rgba(255,255,255,0.08)" : "none",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+          border: mobileOpen ? "1px solid rgba(24,20,15,0.08)" : "none",
+          boxShadow: "0 8px 32px rgba(24,20,15,0.1)",
         }}
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
@@ -137,7 +137,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="block px-4 py-3 text-sm font-medium text-[#cfc7ba] hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300"
+              className="block px-4 py-3 text-sm font-medium text-[#4a4237] hover:text-[#18140f] hover:bg-[#18140f]/5 rounded-xl transition-all duration-300"
               style={{
                 transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
                 opacity: mobileOpen ? 1 : 0,
@@ -153,7 +153,7 @@ export default function Navbar() {
             <Link
               href="/#contact"
               onClick={closeMobile}
-              className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full text-sm font-semibold text-white btn-primary"
+              className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full text-sm font-semibold btn-primary"
             >
               Start a Conversation
             </Link>
