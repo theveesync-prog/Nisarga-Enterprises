@@ -1,6 +1,7 @@
-import { Newspaper, MapPinned, Tv, PartyPopper } from "lucide-react";
+import { Newspaper, MapPin, Television, Confetti } from "@phosphor-icons/react/dist/ssr";
 import EventIllustration from "@/components/illustrations/EventIllustration";
 import Reveal from "@/components/ui/Reveal";
+import { cn } from "@/lib/utils";
 
 interface Channel {
   id: string;
@@ -8,6 +9,7 @@ interface Channel {
   tagline: string;
   icon: typeof Newspaper;
   illustration: "print" | "transit" | "broadcast" | "crowd";
+  span: string;
 }
 
 const channels: Channel[] = [
@@ -17,57 +19,60 @@ const channels: Channel[] = [
     tagline: "Every major newspaper, magazine and journal in the region.",
     icon: Newspaper,
     illustration: "print",
+    span: "md:col-span-7",
   },
   {
     id: "outdoor",
     title: "Outdoor & Transit",
-    tagline: "Hoardings, transit branding — authorized on Railways & KSRTC.",
-    icon: MapPinned,
+    tagline: "Hoardings and transit branding, authorized on Railways & KSRTC.",
+    icon: MapPin,
     illustration: "transit",
+    span: "md:col-span-5",
   },
   {
     id: "broadcast",
     title: "Broadcast & Screen",
     tagline: "TV, radio, FM jingles, cinema slides and DCP placement.",
-    icon: Tv,
+    icon: Television,
     illustration: "broadcast",
+    span: "md:col-span-5",
   },
   {
     id: "events",
     title: "Events & Activation",
     tagline: "Full-scale production, permits, security, manpower.",
-    icon: PartyPopper,
+    icon: Confetti,
     illustration: "crowd",
+    span: "md:col-span-7",
   },
 ];
 
 export default function Capabilities() {
   return (
-    <section className="py-20 px-4 bg-white" id="capabilities">
+    <section className="py-24 px-4 bg-white" id="capabilities">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-14">
-          <div className="section-label justify-center mb-3">Our Capability</div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-3">
             One Agency. Every <em className="accent">Channel.</em>
           </h2>
           <p className="text-gray-600 max-w-xl mx-auto">
-            No handoffs, no patchwork of vendors — a single command center across every medium.
+            No handoffs, no patchwork of vendors: a single command center across every medium.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {channels.map((channel, i) => {
             const Icon = channel.icon;
             return (
-              <Reveal key={channel.id} delay={i * 80}>
-                <div className="glass-card overflow-hidden">
-                  <div className="relative h-36">
+              <Reveal key={channel.id} delay={i * 80} className={channel.span}>
+                <div className="glass-card overflow-hidden h-full flex flex-col">
+                  <div className="relative h-40">
                     <EventIllustration variant={channel.illustration} className="w-full h-full" />
                     <div className="absolute top-4 left-4 flex items-center justify-center w-11 h-11 rounded-xl bg-white/90 backdrop-blur shadow-sm">
-                      <Icon size={20} className="text-[#b52b2c]" />
+                      <Icon size={20} weight="duotone" className="text-[#b52b2c]" />
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className={cn("p-6 flex-1")}>
                     <h3 className="text-lg font-bold text-[#1f2937] mb-1.5">{channel.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{channel.tagline}</p>
                   </div>

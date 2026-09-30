@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, FileText } from "lucide-react";
+import { Phone, EnvelopeSimple, MapPin, FileText, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -7,14 +7,15 @@ import {
   BUSINESS_ADDRESS,
 } from "@/lib/constants";
 import Reveal from "@/components/ui/Reveal";
+import Magnetic from "@/components/ui/Magnetic";
 
 const CAPABILITY_DECK_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-  "Request for Capability Deck — Nisarga Publicity"
+  "Request for Capability Deck, Nisarga Publicity"
 )}`;
 
 export default function FinalCTA() {
   return (
-    <section className="py-20 px-4 bg-white" id="contact">
+    <section className="py-24 px-4 bg-white" id="contact">
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <div
@@ -30,16 +31,21 @@ export default function FinalCTA() {
                 <em className="accent-gold">Miss</em>
               </h2>
               <p className="text-white/85 text-lg mb-8 max-w-xl mx-auto">
-                Talk to us — see what a single, accountable, three-decade-old agency can do.
+                Talk to us and see what a single, accountable, three-decade-old agency can do.
               </p>
 
-              <a
-                href={CAPABILITY_DECK_MAILTO}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold text-[#b52b2c] bg-white hover:shadow-lg transition-all"
-              >
-                <FileText size={18} />
-                Request a Capability Deck
-              </a>
+              <Magnetic>
+                <a
+                  href={CAPABILITY_DECK_MAILTO}
+                  className="group btn-island bg-white text-[#b52b2c] font-semibold"
+                >
+                  <FileText size={18} weight="bold" />
+                  Request a Capability Deck
+                  <span className="btn-island-icon bg-[#b52b2c]/10">
+                    <ArrowUpRight size={16} weight="bold" />
+                  </span>
+                </a>
+              </Magnetic>
             </div>
           </div>
         </Reveal>
@@ -47,7 +53,7 @@ export default function FinalCTA() {
         <Reveal delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div className="glass-card p-5 flex items-start gap-3">
-              <Phone size={18} className="text-[#b52b2c] mt-0.5 flex-shrink-0" />
+              <Phone size={18} weight="fill" className="text-[#b52b2c] mt-0.5 flex-shrink-0" />
               <div>
                 <div className="text-xs font-semibold text-gray-500 mb-1">Call</div>
                 <a href={`tel:${CONTACT_PHONE_TEL}`} className="block text-[#1f2937] hover:text-[#b52b2c] text-sm font-medium">
@@ -60,7 +66,7 @@ export default function FinalCTA() {
             </div>
 
             <div className="glass-card p-5 flex items-start gap-3">
-              <Mail size={18} className="text-[#b52b2c] mt-0.5 flex-shrink-0" />
+              <EnvelopeSimple size={18} weight="fill" className="text-[#b52b2c] mt-0.5 flex-shrink-0" />
               <div>
                 <div className="text-xs font-semibold text-gray-500 mb-1">Email</div>
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#1f2937] hover:text-[#b52b2c] text-sm font-medium break-all">
@@ -70,11 +76,11 @@ export default function FinalCTA() {
             </div>
 
             <div className="glass-card p-5 flex items-start gap-3">
-              <MapPin size={18} className="text-[#b52b2c] mt-0.5 flex-shrink-0" />
+              <MapPin size={18} weight="fill" className="text-[#b52b2c] mt-0.5 flex-shrink-0" />
               <div>
                 <div className="text-xs font-semibold text-gray-500 mb-1">Visit</div>
                 <p className="text-[#1f2937] text-sm font-medium">
-                  {BUSINESS_ADDRESS.addressLocality} – {BUSINESS_ADDRESS.postalCode}
+                  {BUSINESS_ADDRESS.addressLocality}, {BUSINESS_ADDRESS.postalCode}
                 </p>
               </div>
             </div>

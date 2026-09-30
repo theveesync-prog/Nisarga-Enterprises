@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { List, X, ArrowUpRight } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
+import Magnetic from "@/components/ui/Magnetic";
 
 const navLinks = [
   { label: "Legacy", href: "/#legacy" },
@@ -29,7 +30,7 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50 pt-3 px-4 pointer-events-none">
       <nav
         className={cn(
-          "max-w-6xl mx-auto px-4 sm:px-5 h-14 flex items-center justify-between gap-6 rounded-full pointer-events-auto transition-all duration-300",
+          "max-w-6xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-6 rounded-full pointer-events-auto transition-all duration-500",
         )}
         style={{
           background: scrolled ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.78)",
@@ -39,13 +40,14 @@ export default function Navbar() {
           boxShadow: scrolled
             ? "0 8px 32px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.95) inset"
             : "0 2px 20px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.95) inset",
+          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         {/* ─── Logo ─────────────────────────────────── */}
         <Link
           href="/"
           className="flex items-center gap-2 flex-shrink-0"
-          aria-label="Nisarga Publicity — Home"
+          aria-label="Nisarga Publicity home"
         >
           <Image
             src="/logo/nisarga-mark.png"
@@ -73,25 +75,43 @@ export default function Navbar() {
         </ul>
 
         {/* ─── Desktop CTA ──────────────────────────── */}
-        <Link
-          href="/#contact"
-          className="hidden md:inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white btn-primary flex-shrink-0"
-        >
-          Start a Conversation
-        </Link>
+        <Magnetic className="hidden md:inline-block flex-shrink-0">
+          <Link
+            href="/#contact"
+            className="group btn-island btn-primary text-sm font-semibold text-white"
+          >
+            Start a Conversation
+            <span className="btn-island-icon bg-white/15">
+              <ArrowUpRight size={16} weight="bold" />
+            </span>
+          </Link>
+        </Magnetic>
 
         {/* ─── Mobile Hamburger ─────────────────────── */}
         <button
-          className="md:hidden p-2 rounded-full hover:bg-[#b52b2c]/5 transition-colors"
+          className="md:hidden relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-[#b52b2c]/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? (
+          <span
+            className="absolute transition-all duration-300"
+            style={{
+              opacity: mobileOpen ? 0 : 1,
+              transform: mobileOpen ? "rotate(90deg) scale(0.6)" : "rotate(0deg) scale(1)",
+            }}
+          >
+            <List size={22} className="text-[#b52b2c]" />
+          </span>
+          <span
+            className="absolute transition-all duration-300"
+            style={{
+              opacity: mobileOpen ? 1 : 0,
+              transform: mobileOpen ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0.6)",
+            }}
+          >
             <X size={22} className="text-[#b52b2c]" />
-          ) : (
-            <Menu size={22} className="text-[#b52b2c]" />
-          )}
+          </span>
         </button>
       </nav>
 
@@ -112,12 +132,17 @@ export default function Navbar() {
         inert={!mobileOpen}
       >
         <div className="px-4 pt-4 pb-6 space-y-1">
-          {navLinks.map((link) => (
+          {navLinks.map((link, i) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="block px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#b52b2c] hover:bg-[#b52b2c]/5 rounded-xl transition-colors"
+              className="block px-4 py-3 text-sm font-medium text-[#1f2937] hover:text-[#b52b2c] hover:bg-[#b52b2c]/5 rounded-xl transition-all duration-300"
+              style={{
+                transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
+                opacity: mobileOpen ? 1 : 0,
+                transform: mobileOpen ? "translateY(0)" : "translateY(12px)",
+              }}
             >
               {link.label}
             </Link>
