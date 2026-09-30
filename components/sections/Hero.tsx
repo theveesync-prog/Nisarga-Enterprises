@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowUpRight, CaretRight, Medal } from "@phosphor-icons/react";
+import { ArrowUpRight, CaretRight } from "@phosphor-icons/react";
 import {
   motion,
   AnimatePresence,
@@ -10,7 +10,6 @@ import {
   useSpring,
   useReducedMotion,
 } from "motion/react";
-import { FOUNDING_YEAR } from "@/lib/constants";
 import HeroVideo from "@/components/ui/HeroVideo";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
@@ -69,13 +68,6 @@ export default function Hero() {
       {/* Copy */}
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-40 pb-20 flex-1 flex flex-col justify-center">
         <Reveal className="max-w-3xl">
-          <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 mb-8">
-            <Medal size={15} weight="fill" className="text-[#a8302f]" />
-            <span className="text-[#4a4237] text-xs font-semibold tracking-wide uppercase">
-              Advertising &amp; Events Authority Since {FOUNDING_YEAR}
-            </span>
-          </div>
-
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.95] mb-7">
             Building the moments Karnataka <em className="accent">remembers.</em>
           </h1>
@@ -85,19 +77,14 @@ export default function Hero() {
             execution, delivered locally for three decades.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Magnetic>
-              <a href="#contact" className="group btn-island btn-primary font-semibold">
-                Start a Conversation
-                <span className="btn-island-icon bg-white/15">
-                  <ArrowUpRight size={16} weight="bold" />
-                </span>
-              </a>
-            </Magnetic>
-            <a href="#capabilities" className="inline-flex items-center px-6 py-3.5 rounded-full font-semibold btn-outline">
-              See Our Capability
+          <Magnetic>
+            <a href="#contact" className="group btn-island btn-primary font-semibold">
+              Start a Conversation
+              <span className="btn-island-icon bg-white/15">
+                <ArrowUpRight size={16} weight="bold" />
+              </span>
             </a>
-          </div>
+          </Magnetic>
         </Reveal>
       </div>
 
