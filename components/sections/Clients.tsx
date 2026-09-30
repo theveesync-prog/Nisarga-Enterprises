@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 
-const clients = [
+const rowOne = [
   { name: "KPN Fresh", src: "/clients/kpn.png", square: true },
   { name: "Tata Motors", src: "/clients/tata.png" },
   { name: "Reliance Smart", src: "/clients/reliance.png" },
@@ -9,12 +9,51 @@ const clients = [
   { name: "Pilikula Biological Park", src: "/clients/pilikula.png" },
   { name: "Government of Karnataka, Department of Tourism", src: "/clients/karnataka-tourism.png" },
   { name: "ICICI Bank", src: "/clients/icici.png" },
-  { name: "ONGC MRPL", src: "/clients/ongc-mrpl.png", square: true },
-  { name: "Audi", src: "/clients/audi.png" },
 ];
 
-// Duplicated once so the marquee can loop seamlessly at -50%.
-const loop = [...clients, ...clients];
+const rowTwo = [
+  { name: "ONGC MRPL", src: "/clients/ongc-mrpl.png", square: true },
+  { name: "Audi", src: "/clients/audi.png" },
+  { name: "Abharan Jewellers", src: "/clients/abharan.png" },
+  { name: "Kalyan Jewellers", src: "/clients/kalyan.png", square: true },
+  { name: "Castrol", src: "/clients/castrol.png" },
+  { name: "Kia", src: "/clients/kia.png" },
+  { name: "Croma", src: "/clients/croma.png" },
+];
+
+function MarqueeRow({
+  clients,
+  reverse,
+}: {
+  clients: typeof rowOne;
+  reverse?: boolean;
+}) {
+  const loop = [...clients, ...clients];
+  return (
+    <div className="marquee-viewport">
+      <div className={`marquee-track ${reverse ? "marquee-reverse" : ""}`}>
+        {loop.map((client, i) => (
+          <div
+            key={`${client.name}-${i}`}
+            className={`client-logo flex items-center justify-center flex-shrink-0 ${
+              client.square ? "w-32 h-32" : "w-48 h-28"
+            }`}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={client.src}
+                alt={client.name}
+                fill
+                className="object-contain"
+                sizes="240px"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Clients() {
   return (
@@ -29,27 +68,9 @@ export default function Clients() {
       </div>
 
       <Reveal delay={100}>
-        <div className="marquee-viewport">
-          <div className="marquee-track">
-            {loop.map((client, i) => (
-              <div
-                key={`${client.name}-${i}`}
-                className={`client-logo flex items-center justify-center flex-shrink-0 ${
-                  client.square ? "w-32 h-32" : "w-48 h-28"
-                }`}
-              >
-                <div className="relative w-full h-full">
-                  <Image
-                    src={client.src}
-                    alt={client.name}
-                    fill
-                    className="object-contain"
-                    sizes="240px"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="space-y-4">
+          <MarqueeRow clients={rowOne} />
+          <MarqueeRow clients={rowTwo} reverse />
         </div>
       </Reveal>
     </section>
