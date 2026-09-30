@@ -7,6 +7,10 @@ const clients = [
   { name: "Reliance Smart", src: "/clients/reliance.png" },
   { name: "SPAR", src: "/clients/spar.png" },
   { name: "Pilikula Biological Park", src: "/clients/pilikula.png" },
+  { name: "Government of Karnataka, Department of Tourism", src: "/clients/karnataka-tourism.png" },
+  { name: "ICICI Bank", src: "/clients/icici.png" },
+  { name: "ONGC MRPL", src: "/clients/ongc-mrpl.png", square: true },
+  { name: "Audi", src: "/clients/audi.png" },
 ];
 
 export default function Clients() {
