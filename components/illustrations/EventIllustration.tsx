@@ -34,11 +34,11 @@ export default function EventIllustration({ variant, className }: EventIllustrat
       <defs>
         <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#b52b2c" />
-          <stop offset="100%" stopColor="#c8983f" />
+          <stop offset="100%" stopColor="#b8863a" />
         </linearGradient>
         <linearGradient id={`${gradId}-soft`} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#b52b2c" stopOpacity="0.14" />
-          <stop offset="100%" stopColor="#c8983f" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#b8863a" stopOpacity="0.18" />
         </linearGradient>
       </defs>
 
@@ -52,7 +52,7 @@ export default function EventIllustration({ variant, className }: EventIllustrat
             const y = 190 + Math.floor(i / 8) * 34;
             return <circle key={i} cx={x} cy={y} r="13" fill="#b52b2c" opacity={0.25 + (i % 3) * 0.15} />;
           })}
-          <path d="M60 150 Q200 90 340 150" stroke="#c8983f" strokeWidth="3" fill="none" opacity="0.5" strokeDasharray="2 10" strokeLinecap="round" />
+          <path d="M60 150 Q200 90 340 150" stroke="#b8863a" strokeWidth="3" fill="none" opacity="0.5" strokeDasharray="2 10" strokeLinecap="round" />
         </>
       )}
 
@@ -61,7 +61,7 @@ export default function EventIllustration({ variant, className }: EventIllustrat
           <ellipse cx="200" cy="110" rx="70" ry="85" fill={`url(#${gradId})`} opacity="0.85" />
           <path d="M170 190 L180 225 L220 225 L230 190" stroke="#1f2937" strokeWidth="2" fill="none" opacity="0.4" />
           <rect x="182" y="225" width="36" height="24" rx="4" fill="#1f2937" opacity="0.5" />
-          <circle cx="90" cy="240" r="4" fill="#c8983f" opacity="0.6" />
+          <circle cx="90" cy="240" r="4" fill="#b8863a" opacity="0.6" />
           <circle cx="320" cy="80" r="6" fill="#b52b2c" opacity="0.5" />
           <circle cx="60" cy="100" r="5" fill="#b52b2c" opacity="0.4" />
         </>
@@ -83,8 +83,8 @@ export default function EventIllustration({ variant, className }: EventIllustrat
         <>
           <rect x="170" y="140" width="60" height="90" rx="8" fill={`url(#${gradId})`} opacity="0.85" />
           <line x1="200" y1="140" x2="200" y2="70" stroke="#b52b2c" strokeWidth="4" opacity="0.6" />
-          <circle cx="200" cy="60" r="10" fill="#c8983f" opacity="0.8" />
-          <path d="M170 90 Q200 60 230 90" stroke="#c8983f" strokeWidth="2" fill="none" opacity="0.5" />
+          <circle cx="200" cy="60" r="10" fill="#b8863a" opacity="0.8" />
+          <path d="M170 90 Q200 60 230 90" stroke="#b8863a" strokeWidth="2" fill="none" opacity="0.5" />
           <path d="M150 105 Q200 55 250 105" stroke="#b52b2c" strokeWidth="2" fill="none" opacity="0.4" />
         </>
       )}
@@ -124,7 +124,7 @@ export default function EventIllustration({ variant, className }: EventIllustrat
         <>
           <polygon points="200,90 300,130 200,170 100,130" fill={`url(#${gradId})`} opacity="0.85" />
           <line x1="300" y1="130" x2="300" y2="180" stroke="#b52b2c" strokeWidth="3" opacity="0.6" />
-          <circle cx="300" cy="184" r="5" fill="#c8983f" opacity="0.8" />
+          <circle cx="300" cy="184" r="5" fill="#b8863a" opacity="0.8" />
           <path d="M150 150 L150 195 Q200 215 250 195 L250 150" fill={`url(#${gradId})`} opacity="0.5" />
         </>
       )}

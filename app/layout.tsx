@@ -32,7 +32,7 @@ const DESCRIPTION =
   "Coastal Karnataka's full-service advertising and event management agency since 1996. Authorized railway & transit advertiser. The partner of record for government, corporate and large-scale brand activations in Mangaluru & Udupi.";
 
 export const viewport: Viewport = {
-  themeColor: "#0d0b0a",
+  themeColor: "#f5f1e9",
 };
 
 export const metadata: Metadata = {
