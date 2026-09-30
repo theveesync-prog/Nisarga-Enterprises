@@ -1,7 +1,6 @@
 import { Newspaper, MapPin, Television, Confetti } from "@phosphor-icons/react/dist/ssr";
 import EventIllustration from "@/components/illustrations/EventIllustration";
 import Reveal from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
 
 interface Channel {
   id: string;
@@ -49,13 +48,13 @@ const channels: Channel[] = [
 
 export default function Capabilities() {
   return (
-    <section className="py-24 px-4 bg-white" id="capabilities">
+    <section className="py-28 px-4 bg-[#0d0b0a]" id="capabilities">
       <div className="max-w-6xl mx-auto">
-        <Reveal className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1f2937] mb-3">
-            One Agency. Every <em className="accent">Channel.</em>
+        <Reveal className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#f8f5ee] mb-4 tracking-tight">
+            One agency. Every <em className="accent">channel.</em>
           </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <p className="text-[#a89f92] max-w-xl mx-auto text-lg">
             No handoffs, no patchwork of vendors: a single command center across every medium.
           </p>
         </Reveal>
@@ -68,13 +67,13 @@ export default function Capabilities() {
                 <div className="glass-card overflow-hidden h-full flex flex-col">
                   <div className="relative h-40">
                     <EventIllustration variant={channel.illustration} className="w-full h-full" />
-                    <div className="absolute top-4 left-4 flex items-center justify-center w-11 h-11 rounded-xl bg-white/90 backdrop-blur shadow-sm">
-                      <Icon size={20} weight="duotone" className="text-[#b52b2c]" />
+                    <div className="absolute top-4 left-4 flex items-center justify-center w-11 h-11 rounded-xl bg-[#0d0b0a]/80 backdrop-blur border border-white/10">
+                      <Icon size={20} weight="duotone" className="text-[#e3605e]" />
                     </div>
                   </div>
-                  <div className={cn("p-6 flex-1")}>
-                    <h3 className="text-lg font-bold text-[#1f2937] mb-1.5">{channel.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{channel.tagline}</p>
+                  <div className="p-6 flex-1">
+                    <h3 className="text-lg font-bold text-[#f8f5ee] mb-1.5">{channel.title}</h3>
+                    <p className="text-[#a89f92] text-sm leading-relaxed">{channel.tagline}</p>
                   </div>
                 </div>
               </Reveal>
