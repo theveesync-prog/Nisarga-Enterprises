@@ -9,24 +9,42 @@ import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
 
 export default function Hero() {
-  const videoRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
-    target: videoRef,
-    offset: ["start end", "end start"],
+    target: sectionRef,
+    offset: ["start start", "end start"],
   });
-  const rawY = useTransform(scrollYProgress, [0, 1], [-40, 90]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const y = useSpring(rawY, { stiffness: 120, damping: 30, mass: 0.4 });
 
   return (
     <section
-      className="bg-white pt-40 pb-20 px-4 relative overflow-hidden"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col overflow-hidden bg-[#18140f]"
       aria-label="Nisarga Publicity introduction"
     >
-      <div className="max-w-6xl mx-auto relative">
-        {/* Copy */}
-        <Reveal className="max-w-3xl mb-14">
+      {/* Full-bleed hero video background */}
+      <motion.div
+        className="absolute inset-0 scale-110"
+        style={reduce ? undefined : { y }}
+      >
+        <HeroVideo src="/video/hero.mp4" className="w-full h-full" />
+      </motion.div>
+
+      {/* Subtle translucent black scrim for text legibility */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.55) 100%)",
+        }}
+      />
+
+      {/* Copy */}
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-40 pb-20 flex-1 flex flex-col justify-center">
+        <Reveal className="max-w-3xl">
           <div className="glass-chip inline-flex items-center gap-2 px-4 py-2 mb-8">
             <Medal size={15} weight="fill" className="text-[#a8302f]" />
             <span className="text-[#4a4237] text-xs font-semibold tracking-wide uppercase">
@@ -34,11 +52,11 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#18140f] leading-[0.95] mb-7">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.95] mb-7">
             Building the moments Karnataka <em className="accent">remembers.</em>
           </h1>
 
-          <p className="text-[#6f6759] text-lg max-w-lg mb-10">
+          <p className="text-white/75 text-lg max-w-lg mb-10">
             One agency. Every medium, print, outdoor, broadcast, events. National-grade
             execution, delivered locally for three decades.
           </p>
@@ -57,48 +75,33 @@ export default function Hero() {
             </a>
           </div>
         </Reveal>
+      </div>
 
-        {/* Wide-screen hero video, drifting gently as the page scrolls */}
-        <Reveal delay={150}>
-          <motion.div
-            ref={videoRef}
-            className="relative"
-            style={reduce ? undefined : { y }}
-          >
-            <div className="video-frame">
-              <div className="video-frame-core overflow-hidden aspect-[16/9] md:aspect-[21/9]">
-                <HeroVideo src="/video/hero.mp4" className="w-full h-full" />
-              </div>
-            </div>
+      {/* Floating stat chips, over the video */}
+      <div
+        className="glass-chip absolute top-24 right-4 md:top-28 md:right-8 z-10 px-5 py-4 float-slow hidden sm:block"
+        style={{ ["--float-rotate" as string]: "-2deg" }}
+      >
+        <div className="flex items-center gap-2">
+          <Users size={18} weight="fill" className="text-[#a8302f]" />
+          <div>
+            <div className="text-lg font-bold text-[#18140f] leading-none">100K+</div>
+            <div className="text-[11px] text-[#6f6759]">single-event reach</div>
+          </div>
+        </div>
+      </div>
 
-            {/* Floating stat chips */}
-            <div
-              className="glass-chip absolute top-4 left-4 md:top-6 md:left-6 px-5 py-4 float-slow"
-              style={{ ["--float-rotate" as string]: "-2deg" }}
-            >
-              <div className="flex items-center gap-2">
-                <Users size={18} weight="fill" className="text-[#a8302f]" />
-                <div>
-                  <div className="text-lg font-bold text-[#18140f] leading-none">100K+</div>
-                  <div className="text-[11px] text-[#6f6759]">single-event reach</div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="glass-chip absolute bottom-4 right-4 md:bottom-6 md:right-6 px-5 py-4 float-slower"
-              style={{ ["--float-rotate" as string]: "2deg" }}
-            >
-              <div className="flex items-center gap-2">
-                <Train size={18} weight="fill" className="text-[#b8863a]" />
-                <div>
-                  <div className="text-sm font-bold text-[#18140f] leading-none">Authorized</div>
-                  <div className="text-[11px] text-[#6f6759]">Railways &amp; KSRTC</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </Reveal>
+      <div
+        className="glass-chip absolute bottom-8 right-4 md:bottom-12 md:right-8 z-10 px-5 py-4 float-slower"
+        style={{ ["--float-rotate" as string]: "2deg" }}
+      >
+        <div className="flex items-center gap-2">
+          <Train size={18} weight="fill" className="text-[#b8863a]" />
+          <div>
+            <div className="text-sm font-bold text-[#18140f] leading-none">Authorized</div>
+            <div className="text-[11px] text-[#6f6759]">Railways &amp; KSRTC</div>
+          </div>
+        </div>
       </div>
     </section>
   );
