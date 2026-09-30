@@ -13,7 +13,7 @@ const categories: {
 
 export default function Engagements() {
   return (
-    <section className="py-28 px-4 bg-[#f6f6f4]" id="engagements">
+    <section className="py-28 px-4 bg-white" id="engagements">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#18140f] max-w-2xl mx-auto tracking-tight">

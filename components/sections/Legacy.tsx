@@ -3,7 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function Legacy() {
   return (
-    <section className="py-28 px-4 bg-[#f6f6f4]" id="legacy">
+    <section className="py-28 px-4 bg-white" id="legacy">
       <div className="max-w-5xl mx-auto grid md:grid-cols-[220px_1fr] gap-10 items-center">
         <Reveal>
           <div className="glass-card p-8 text-center">
