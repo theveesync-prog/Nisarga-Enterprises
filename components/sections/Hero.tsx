@@ -27,7 +27,7 @@ export default function Hero() {
     >
       {/* Full-bleed hero video background */}
       <motion.div className="absolute inset-0 scale-110" style={reduce ? undefined : { y }}>
-        <HeroVideo src="/video/hero.mp4" className="w-full h-full" />
+        <HeroVideo src="/video/hero.mp4" className="w-full h-full" rotate={-90} />
       </motion.div>
 
       {/* Subtle translucent black scrim for text legibility */}
