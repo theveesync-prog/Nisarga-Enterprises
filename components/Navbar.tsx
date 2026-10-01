@@ -19,7 +19,7 @@ const rightLinks = [
 const allLinks = [...leftLinks, ...rightLinks];
 
 const linkClass =
-  "block px-3 py-2 text-sm font-medium text-[#4a4237] hover:text-[#18140f] transition-colors rounded-full hover:bg-[#18140f]/5";
+  "block px-3 py-2 text-base font-medium tracking-wide text-[#4a4237] hover:text-[#18140f] transition-colors rounded-full hover:bg-[#18140f]/5";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function Navbar() {
         )}
       >
         {/* Left links (desktop only) */}
-        <ul className="hidden md:flex items-center gap-1 lg:gap-2 justify-self-end">
+        <ul className="hidden md:flex items-center gap-2 lg:gap-4 justify-self-end">
           {leftLinks.map((link) => (
             <li key={link.label}>
               <Link href={link.href} className={linkClass}>
@@ -66,13 +66,13 @@ export default function Navbar() {
             width={220}
             height={220}
             priority
-            className="h-8 w-8"
+            className="h-9 w-9"
           />
-          <span className="font-bold text-base text-[#18140f] tracking-tight">Nisarga</span>
+          <span className="font-bold text-lg text-[#18140f] tracking-wide">Nisarga</span>
         </Link>
 
         {/* Right links (desktop only) */}
-        <ul className="hidden md:flex items-center gap-1 lg:gap-2 justify-self-start">
+        <ul className="hidden md:flex items-center gap-2 lg:gap-4 justify-self-start">
           {rightLinks.map((link) => (
             <li key={link.label}>
               <Link href={link.href} className={linkClass}>
