@@ -62,7 +62,7 @@ export default function Clients() {
         <Reveal className="text-center mb-14">
           <div className="section-label justify-center mb-3">Trusted By</div>
           <h2 className="text-2xl md:text-3xl font-bold text-[#18140f] tracking-tight">
-            Brands who&apos;ve put their name on our work.
+            Brands who&apos;ve put their name on our <em className="accent">work.</em>
           </h2>
         </Reveal>
       </div>

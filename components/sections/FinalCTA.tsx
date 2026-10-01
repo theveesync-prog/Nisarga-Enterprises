@@ -1,9 +1,8 @@
-import { Phone, EnvelopeSimple, MapPin, FileText, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { WhatsappLogo, EnvelopeSimple, MapPin, FileText, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
-  CONTACT_PHONE_ALT,
-  CONTACT_PHONE_TEL,
+  CONTACT_WHATSAPP,
   BUSINESS_ADDRESS,
 } from "@/lib/constants";
 import Reveal from "@/components/ui/Reveal";
@@ -53,14 +52,16 @@ export default function FinalCTA() {
         <Reveal delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div className="glass-card p-5 flex items-start gap-3">
-              <Phone size={18} weight="fill" className="text-[#a8302f] mt-0.5 flex-shrink-0" />
+              <WhatsappLogo size={18} weight="fill" className="text-[#a8302f] mt-0.5 flex-shrink-0" />
               <div>
-                <div className="text-xs font-semibold text-[#8a8072] mb-1">Call</div>
-                <a href={`tel:${CONTACT_PHONE_TEL}`} className="block text-[#18140f] hover:text-[#a8302f] text-sm font-medium">
+                <div className="text-xs font-semibold text-[#8a8072] mb-1">WhatsApp</div>
+                <a
+                  href={CONTACT_WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-[#18140f] hover:text-[#a8302f] text-sm font-medium"
+                >
                   {CONTACT_PHONE}
-                </a>
-                <a href={`tel:${CONTACT_PHONE_ALT.replace(/\s/g, "")}`} className="block text-[#18140f] hover:text-[#a8302f] text-sm font-medium">
-                  {CONTACT_PHONE_ALT}
                 </a>
               </div>
             </div>

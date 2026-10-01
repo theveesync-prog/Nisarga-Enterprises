@@ -235,7 +235,8 @@
   }
 
   /* Continuous logo marquee: edge-faded viewport, seamless duplicated
-     track, pauses on hover so a visitor can actually read a logo. */
+     track. Keeps rolling under the cursor — only the individual logo
+     being hovered enlarges (.client-logo:hover), not the whole row. */
   .marquee-viewport {
     overflow: hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
@@ -248,9 +249,6 @@
     gap: 1.75rem;
     padding: 0 1.75rem;
     animation: marquee-scroll 36s linear infinite;
-  }
-  .marquee-track:hover {
-    animation-play-state: paused;
   }
   .marquee-track.marquee-reverse {
     animation-direction: reverse;
