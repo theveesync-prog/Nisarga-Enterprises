@@ -31,31 +31,33 @@ export default function RecentEvents() {
 
         <div
           ref={rowRef}
-          className="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-6 sm:gap-8 overflow-x-auto py-6 px-2 snap-x snap-mandatory scroll-smooth justify-start lg:justify-center [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {EVENTS.map((event) => (
+          {EVENTS.map((event, i) => (
             <Link
               key={event.slug}
               href={`/events/${event.slug}`}
               data-event-card
-              className="group relative flex-shrink-0 w-[280px] sm:w-[340px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl snap-start transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2"
+              className={`group relative flex-shrink-0 w-[170px] sm:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl snap-start transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-3 hover:rotate-0 hover:shadow-2xl ${
+                i % 2 === 0 ? "rotate-[-3deg]" : "rotate-[3deg]"
+              }`}
             >
               <Image
                 src={event.image}
                 alt={event.title}
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 280px, 340px"
+                sizes="(max-width: 640px) 170px, 200px"
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.75) 100%)",
+                    "linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.8) 100%)",
                 }}
               />
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <span className="text-white font-bold text-sm uppercase tracking-wide">
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="text-white font-extrabold text-xs sm:text-sm uppercase tracking-wide">
                   {event.title}
                 </span>
               </div>
@@ -63,22 +65,22 @@ export default function RecentEvents() {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-3 mt-8">
+        <div className="flex items-center justify-center gap-2 mt-4">
           <button
             type="button"
             onClick={() => scroll(-1)}
             aria-label="Previous event"
-            className="flex items-center justify-center w-11 h-11 rounded-full border border-[#18140f]/15 text-[#18140f] hover:bg-[#18140f]/5 transition-colors"
+            className="flex items-center justify-center w-9 h-9 rounded-full border border-[#18140f]/15 text-[#18140f] hover:bg-[#18140f]/5 transition-colors"
           >
-            <ArrowLeft size={18} weight="bold" />
+            <ArrowLeft size={15} weight="bold" />
           </button>
           <button
             type="button"
             onClick={() => scroll(1)}
             aria-label="Next event"
-            className="flex items-center justify-center w-11 h-11 rounded-full bg-[#18140f] text-white hover:opacity-90 transition-opacity"
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#18140f] text-white hover:opacity-90 transition-opacity"
           >
-            <ArrowRight size={18} weight="bold" />
+            <ArrowRight size={15} weight="bold" />
           </button>
         </div>
       </div>
