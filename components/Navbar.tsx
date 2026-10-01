@@ -19,7 +19,7 @@ const rightLinks = [
 const allLinks = [...leftLinks, ...rightLinks];
 
 const linkClass =
-  "block px-2 py-2 text-base font-medium tracking-wide text-[#4a4237] hover:text-[#18140f] transition-colors";
+  "block px-2 py-2 text-base font-display font-semibold tracking-wide text-[#4a4237] hover:text-[#18140f] transition-colors";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,7 +69,7 @@ export default function Navbar() {
             className="h-11 w-11"
             quality={100}
           />
-          <span className="font-bold text-2xl text-[#18140f] tracking-wide">Nisarga</span>
+          <span className="font-display font-bold text-2xl text-[#18140f] tracking-wide">Nisarga</span>
         </Link>
 
         {/* Right links (desktop only) */}
@@ -128,7 +128,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="block px-4 py-3 text-sm font-medium text-[#4a4237] hover:text-[#18140f] hover:bg-[#18140f]/5 rounded-xl transition-all duration-300"
+              className="block px-4 py-3 text-sm font-display font-semibold text-[#4a4237] hover:text-[#18140f] hover:bg-[#18140f]/5 rounded-xl transition-all duration-300"
               style={{
                 transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
                 opacity: mobileOpen ? 1 : 0,

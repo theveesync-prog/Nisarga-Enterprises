@@ -57,10 +57,9 @@ function MarqueeRow({
 
 export default function Clients() {
   return (
-    <section className="py-24 bg-white overflow-hidden" id="clients">
+    <section className="py-14 md:py-20 bg-white overflow-hidden" id="clients">
       <div className="max-w-5xl mx-auto px-4">
-        <Reveal className="text-center mb-14">
-          <div className="section-label justify-center mb-3">Trusted By</div>
+        <Reveal className="text-center mb-8 md:mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-[#18140f] tracking-tight">
             Brands who&apos;ve put their name on our <em className="accent">work.</em>
           </h2>

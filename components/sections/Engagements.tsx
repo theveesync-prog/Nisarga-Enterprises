@@ -13,9 +13,9 @@ const categories: {
 
 export default function Engagements() {
   return (
-    <section className="py-28 px-4 bg-white" id="engagements">
+    <section className="py-16 md:py-24 px-4 bg-white" id="engagements">
       <div className="max-w-6xl mx-auto">
-        <Reveal className="text-center mb-16">
+        <Reveal className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-[#18140f] max-w-2xl mx-auto tracking-tight">
             Trusted across corporate, government &amp; private{" "}
             <em className="accent">engagements.</em>

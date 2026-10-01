@@ -63,7 +63,7 @@ export default function Hero() {
       />
 
       {/* Copy */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-28 sm:pt-36 md:pt-40 pb-16 md:pb-20 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-28 sm:pt-36 md:pt-40 pb-10 md:pb-14 flex-1 flex flex-col justify-center">
         <Reveal className="max-w-3xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] sm:leading-[0.95] mb-5 sm:mb-7">
             Building the moments Karnataka <em className="accent">remembers.</em>
