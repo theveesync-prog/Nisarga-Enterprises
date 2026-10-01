@@ -9,6 +9,9 @@ const rowOne = [
   { name: "Pilikula Biological Park", src: "/clients/pilikula.png" },
   { name: "Government of Karnataka, Department of Tourism", src: "/clients/karnataka-tourism.png" },
   { name: "ICICI Bank", src: "/clients/icici.png" },
+  { name: "JCB", src: "/clients/jcb.png" },
+  { name: "Hyundai", src: "/clients/hyundai.png" },
+  { name: "Toyota", src: "/clients/toyota.png" },
 ];
 
 const rowTwo = [
@@ -19,6 +22,8 @@ const rowTwo = [
   { name: "Castrol", src: "/clients/castrol.png" },
   { name: "Kia", src: "/clients/kia.png" },
   { name: "Croma", src: "/clients/croma.png" },
+  { name: "MG", src: "/clients/mg.png", square: true },
+  { name: "KFC", src: "/clients/kfc.png", square: true },
 ];
 
 function MarqueeRow({
