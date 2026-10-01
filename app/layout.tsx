@@ -12,6 +12,7 @@ import {
 } from "@/lib/constants";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JourneyThread from "@/components/ui/JourneyThread";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -114,6 +115,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <Navbar />
+        <JourneyThread />
         {children}
         <Footer />
       </body>
