@@ -6,25 +6,25 @@ const channels = [
     id: "print",
     title: "Print & Publication",
     tagline: "Every major newspaper, magazine and journal in the region.",
-    illustration: "print" as const,
+    image: "/services/print.jpg",
   },
   {
     id: "outdoor",
     title: "Outdoor & Transit",
     tagline: "Hoardings and transit branding, authorized on Railways & KSRTC.",
-    illustration: "transit" as const,
+    image: "/services/transit.webp",
   },
   {
     id: "broadcast",
     title: "Broadcast & Screen",
     tagline: "TV, radio, FM jingles, cinema slides and DCP placement.",
-    illustration: "broadcast" as const,
+    image: "/services/broadcast.jpg",
   },
   {
     id: "events",
     title: "Events & Activation",
     tagline: "Full-scale production, permits, security, manpower.",
-    illustration: "crowd" as const,
+    image: "/services/events.jpg",
   },
 ];
 

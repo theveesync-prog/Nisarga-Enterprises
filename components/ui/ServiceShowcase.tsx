@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, useMotionValue, useSpring, type MotionValue } from "motion/react";
-import EventIllustration from "@/components/illustrations/EventIllustration";
 import { ArrowUpRight } from "@phosphor-icons/react";
 
 interface Service {
   id: string;
   title: string;
   tagline: string;
-  illustration: "print" | "transit" | "broadcast" | "crowd";
+  image: string;
 }
 
 interface ServiceShowcaseProps {
@@ -95,7 +95,13 @@ function FloatingPreview({
           className="absolute inset-0 transition-opacity duration-300"
           style={{ opacity: active === i ? 1 : 0 }}
         >
-          <EventIllustration variant={service.illustration} className="w-full h-full" />
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className="object-cover"
+            sizes="224px"
+          />
         </div>
       ))}
     </motion.div>
