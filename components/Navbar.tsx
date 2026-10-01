@@ -3,16 +3,23 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { List, X, ArrowUpRight } from "@phosphor-icons/react";
+import { List, X } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
-import Magnetic from "@/components/ui/Magnetic";
 
-const navLinks = [
+const leftLinks = [
   { label: "Legacy", href: "/#legacy" },
   { label: "Capabilities", href: "/#capabilities" },
+];
+
+const rightLinks = [
   { label: "Why Us", href: "/#why-us" },
   { label: "Contact", href: "/#contact" },
 ];
+
+const allLinks = [...leftLinks, ...rightLinks];
+
+const linkClass =
+  "block px-3 py-2 text-sm font-medium text-[#4a4237] hover:text-[#18140f] transition-colors rounded-full hover:bg-[#18140f]/5";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,14 +38,26 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50 pt-4 px-4 pointer-events-none">
       <nav
         className={cn(
-          "glass-nav max-w-6xl mx-auto px-4 sm:px-5 h-16 flex items-center justify-between gap-6 rounded-full pointer-events-auto transition-all duration-500",
+          "glass-nav max-w-6xl mx-auto px-4 sm:px-5 h-16 rounded-full pointer-events-auto transition-all duration-500",
+          "flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6",
           scrolled && "is-scrolled"
         )}
       >
-        {/* Logo */}
+        {/* Left links (desktop only) */}
+        <ul className="hidden md:flex items-center gap-1 lg:gap-2 justify-self-end">
+          {leftLinks.map((link) => (
+            <li key={link.label}>
+              <Link href={link.href} className={linkClass}>
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Logo — centered on desktop, left-aligned on mobile */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 flex-shrink-0"
+          className="flex items-center gap-2.5 flex-shrink-0 md:justify-self-center"
           aria-label="Nisarga Publicity home"
         >
           <Image
@@ -52,29 +71,16 @@ export default function Navbar() {
           <span className="font-bold text-base text-[#18140f] tracking-tight">Nisarga</span>
         </Link>
 
-        {/* Desktop nav links */}
-        <ul className="hidden md:flex items-center gap-1 lg:gap-2">
-          {navLinks.map((link) => (
+        {/* Right links (desktop only) */}
+        <ul className="hidden md:flex items-center gap-1 lg:gap-2 justify-self-start">
+          {rightLinks.map((link) => (
             <li key={link.label}>
-              <Link
-                href={link.href}
-                className="block px-3 py-2 text-sm font-medium text-[#4a4237] hover:text-[#18140f] transition-colors rounded-full hover:bg-[#18140f]/5"
-              >
+              <Link href={link.href} className={linkClass}>
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
-
-        {/* Desktop CTA */}
-        <Magnetic className="hidden md:inline-block flex-shrink-0">
-          <Link href="/#contact" className="group btn-island btn-primary text-sm font-semibold">
-            Start a Conversation
-            <span className="btn-island-icon bg-white/15">
-              <ArrowUpRight size={16} weight="bold" />
-            </span>
-          </Link>
-        </Magnetic>
 
         {/* Mobile hamburger */}
         <button
@@ -116,7 +122,7 @@ export default function Navbar() {
         inert={!mobileOpen}
       >
         <div className="px-4 pt-4 pb-6 space-y-1">
-          {navLinks.map((link, i) => (
+          {allLinks.map((link, i) => (
             <Link
               key={link.label}
               href={link.href}
@@ -131,16 +137,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-
-          <div className="pt-3">
-            <Link
-              href="/#contact"
-              onClick={closeMobile}
-              className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full text-sm font-semibold btn-primary"
-            >
-              Start a Conversation
-            </Link>
-          </div>
         </div>
       </div>
     </header>
