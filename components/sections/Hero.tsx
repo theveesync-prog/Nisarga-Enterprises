@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowUpRight, CaretRight } from "@phosphor-icons/react";
+import { CaretRight } from "@phosphor-icons/react";
 import {
   motion,
   AnimatePresence,
@@ -53,18 +53,23 @@ export default function Hero() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Subtle translucent black scrim for text legibility */}
+      {/* Translucent black scrim: darkest lower-left where the copy sits,
+          clearing toward the upper-right so the video stays visible. */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.55) 100%)",
+            "linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.15) 100%), linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 32%, rgba(0,0,0,0.12) 62%, rgba(0,0,0,0.55) 100%)",
         }}
       />
 
       {/* Copy */}
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4 pt-28 sm:pt-36 md:pt-40 pb-10 md:pb-14 flex-1 flex flex-col justify-center">
         <Reveal className="max-w-3xl">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-white/70 mb-4 sm:mb-5">
+            Nisarga Publicity
+          </div>
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] sm:leading-[0.95] mb-5 sm:mb-7">
             Building the moments Karnataka <em className="accent">remembers.</em>
           </h1>
@@ -75,11 +80,11 @@ export default function Hero() {
           </p>
 
           <Magnetic>
-            <a href="#contact" className="group btn-island btn-primary font-semibold">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center bg-[#18140f] text-white font-semibold text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg hover:opacity-90 transition-opacity duration-300"
+            >
               Start a Conversation
-              <span className="btn-island-icon bg-white/15">
-                <ArrowUpRight size={16} weight="bold" />
-              </span>
             </a>
           </Magnetic>
         </Reveal>
