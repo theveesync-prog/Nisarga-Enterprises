@@ -31,15 +31,15 @@ export default function RecentEvents() {
 
         <div
           ref={rowRef}
-          className="flex gap-6 sm:gap-8 overflow-x-auto py-6 px-2 snap-x snap-mandatory scroll-smooth justify-start lg:justify-center [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="event-fan-row flex gap-10 sm:gap-14 overflow-x-auto py-12 px-4 snap-x snap-mandatory scroll-smooth justify-start lg:justify-center [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {EVENTS.map((event, i) => (
             <Link
               key={event.slug}
               href={`/events/${event.slug}`}
               data-event-card
-              className={`group relative flex-shrink-0 w-[170px] sm:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl snap-start transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-3 hover:rotate-0 hover:shadow-2xl ${
-                i % 2 === 0 ? "rotate-[-3deg]" : "rotate-[3deg]"
+              className={`event-card-3d group relative flex-shrink-0 w-[170px] sm:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl snap-start ${
+                i % 2 === 0 ? "tilt-a" : "tilt-b"
               }`}
             >
               <Image
@@ -53,12 +53,19 @@ export default function RecentEvents() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.8) 100%)",
+                    "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%)",
                 }}
               />
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <span className="text-white font-extrabold text-xs sm:text-sm uppercase tracking-wide">
+                <div className="w-6 h-[2px] bg-[#e8cf9a] mb-2" />
+                <span
+                  className="block text-white font-display font-bold text-sm sm:text-base leading-tight"
+                  style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}
+                >
                   {event.title}
+                </span>
+                <span className="block text-[#e8cf9a] text-[10px] font-semibold uppercase tracking-[0.18em] mt-1.5">
+                  {event.client}
                 </span>
               </div>
             </Link>
