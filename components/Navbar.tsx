@@ -19,7 +19,7 @@ const rightLinks = [
 const allLinks = [...leftLinks, ...rightLinks];
 
 const linkClass =
-  "block px-3 py-2 text-base font-medium tracking-wide text-[#4a4237] hover:text-[#18140f] transition-colors rounded-full hover:bg-[#18140f]/5";
+  "block px-2 py-2 text-base font-medium tracking-wide text-[#4a4237] hover:text-[#18140f] transition-colors";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -38,13 +38,13 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50 pt-4 px-4 pointer-events-none">
       <nav
         className={cn(
-          "glass-nav max-w-6xl mx-auto px-4 sm:px-5 h-16 rounded-full pointer-events-auto transition-all duration-500",
+          "glass-nav max-w-6xl mx-auto px-6 sm:px-8 h-20 rounded-full pointer-events-auto transition-all duration-500",
           "flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6",
           scrolled && "is-scrolled"
         )}
       >
         {/* Left links (desktop only) */}
-        <ul className="hidden md:flex items-center gap-2 lg:gap-4 justify-self-end">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-10 justify-self-end">
           {leftLinks.map((link) => (
             <li key={link.label}>
               <Link href={link.href} className={linkClass}>
@@ -66,13 +66,14 @@ export default function Navbar() {
             width={220}
             height={220}
             priority
-            className="h-9 w-9"
+            className="h-11 w-11"
+            quality={100}
           />
-          <span className="font-bold text-lg text-[#18140f] tracking-wide">Nisarga</span>
+          <span className="font-bold text-2xl text-[#18140f] tracking-wide">Nisarga</span>
         </Link>
 
         {/* Right links (desktop only) */}
-        <ul className="hidden md:flex items-center gap-2 lg:gap-4 justify-self-start">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-10 justify-self-start">
           {rightLinks.map((link) => (
             <li key={link.label}>
               <Link href={link.href} className={linkClass}>
