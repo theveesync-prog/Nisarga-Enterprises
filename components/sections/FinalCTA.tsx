@@ -1,12 +1,8 @@
-import { WhatsappLogo, EnvelopeSimple, MapPin, FileText, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import {
-  CONTACT_EMAIL,
-  CONTACT_PHONE,
-  CONTACT_WHATSAPP,
-  BUSINESS_ADDRESS,
-} from "@/lib/constants";
+import { FileText, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
+import VisitUsCard from "@/components/ui/VisitUsCard";
 
 const CAPABILITY_DECK_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   "Request for Capability Deck, Nisarga Publicity"
@@ -15,8 +11,8 @@ const CAPABILITY_DECK_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURICompo
 export default function FinalCTA() {
   return (
     <section className="py-16 md:py-24 px-4 bg-white" id="contact">
-      <div className="max-w-3xl mx-auto">
-        <Reveal>
+      <div className="max-w-5xl mx-auto">
+        <Reveal className="max-w-3xl mx-auto">
           <div
             className="rounded-[2rem] p-10 md:p-16 text-center relative overflow-hidden"
             style={{ background: "linear-gradient(135deg, #c8403f 0%, #8f2020 65%, #2a1010 100%)" }}
@@ -49,43 +45,8 @@ export default function FinalCTA() {
           </div>
         </Reveal>
 
-        <Reveal delay={100}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            <div className="glass-card p-5 flex items-start gap-3">
-              <WhatsappLogo size={18} weight="fill" className="text-[#a8302f] mt-0.5 flex-shrink-0" />
-              <div>
-                <div className="text-xs font-semibold text-[#8a8072] mb-1">WhatsApp</div>
-                <a
-                  href={CONTACT_WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-[#18140f] hover:text-[#a8302f] text-sm font-medium"
-                >
-                  {CONTACT_PHONE}
-                </a>
-              </div>
-            </div>
-
-            <div className="glass-card p-5 flex items-start gap-3">
-              <EnvelopeSimple size={18} weight="fill" className="text-[#a8302f] mt-0.5 flex-shrink-0" />
-              <div>
-                <div className="text-xs font-semibold text-[#8a8072] mb-1">Email</div>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#18140f] hover:text-[#a8302f] text-sm font-medium break-all">
-                  {CONTACT_EMAIL}
-                </a>
-              </div>
-            </div>
-
-            <div className="glass-card p-5 flex items-start gap-3">
-              <MapPin size={18} weight="fill" className="text-[#a8302f] mt-0.5 flex-shrink-0" />
-              <div>
-                <div className="text-xs font-semibold text-[#8a8072] mb-1">Visit</div>
-                <p className="text-[#18140f] text-sm font-medium">
-                  {BUSINESS_ADDRESS.addressLocality}, {BUSINESS_ADDRESS.postalCode}
-                </p>
-              </div>
-            </div>
-          </div>
+        <Reveal delay={100} className="mt-6">
+          <VisitUsCard />
         </Reveal>
       </div>
     </section>

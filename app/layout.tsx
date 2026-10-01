@@ -9,6 +9,7 @@ import {
   CONTACT_EMAIL,
   CONTACT_PHONE_TEL,
   FOUNDING_YEAR,
+  SOCIAL_LINKS,
 } from "@/lib/constants";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -108,6 +109,13 @@ export default function RootLayout({
                 addressRegion: BUSINESS_ADDRESS.addressRegion,
                 postalCode: BUSINESS_ADDRESS.postalCode,
                 addressCountry: BUSINESS_ADDRESS.addressCountry,
+              },
+              sameAs: [SOCIAL_LINKS.instagram],
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "10:00",
+                closes: "18:00",
               },
             }),
           }}
