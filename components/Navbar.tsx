@@ -6,20 +6,15 @@ import Image from "next/image";
 import { List, X } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
-const leftLinks = [
+const navLinks = [
   { label: "Legacy", href: "/#legacy" },
   { label: "Capabilities", href: "/#capabilities" },
-];
-
-const rightLinks = [
   { label: "Why Us", href: "/#why-us" },
   { label: "Contact", href: "/#contact" },
 ];
 
-const allLinks = [...leftLinks, ...rightLinks];
-
 const linkClass =
-  "block px-2 py-2 text-base font-display font-semibold tracking-wide text-[#4a4237] hover:text-[#18140f] transition-colors";
+  "block px-2 py-2 text-sm lg:text-base font-display font-semibold text-[#4a4237] hover:text-[#18140f] transition-colors";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -39,49 +34,39 @@ export default function Navbar() {
       <nav
         className={cn(
           "glass-nav max-w-6xl mx-auto px-6 sm:px-8 h-20 rounded-full pointer-events-auto transition-all duration-500",
-          "flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6",
+          "flex items-center justify-between",
           scrolled && "is-scrolled"
         )}
       >
-        {/* Left links (desktop only) */}
-        <ul className="hidden md:flex items-center gap-6 lg:gap-10 justify-self-end">
-          {leftLinks.map((link) => (
-            <li key={link.label}>
-              <Link href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Logo + links grouped together on the left */}
+        <div className="flex items-center gap-8 lg:gap-12">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 flex-shrink-0"
+            aria-label="Nisarga Publicity home"
+          >
+            <Image
+              src="/logo/nisarga-mark.png"
+              alt=""
+              width={220}
+              height={220}
+              priority
+              className="h-11 w-11"
+              quality={100}
+            />
+            <span className="font-display font-bold text-2xl text-[#18140f] tracking-wide">Nisarga</span>
+          </Link>
 
-        {/* Logo — centered on desktop, left-aligned on mobile */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 flex-shrink-0 md:justify-self-center"
-          aria-label="Nisarga Publicity home"
-        >
-          <Image
-            src="/logo/nisarga-mark.png"
-            alt=""
-            width={220}
-            height={220}
-            priority
-            className="h-11 w-11"
-            quality={100}
-          />
-          <span className="font-display font-bold text-2xl text-[#18140f] tracking-wide">Nisarga</span>
-        </Link>
-
-        {/* Right links (desktop only) */}
-        <ul className="hidden md:flex items-center gap-6 lg:gap-10 justify-self-start">
-          {rightLinks.map((link) => (
-            <li key={link.label}>
-              <Link href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href} className={linkClass}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -123,7 +108,7 @@ export default function Navbar() {
         inert={!mobileOpen}
       >
         <div className="px-4 pt-4 pb-6 space-y-1">
-          {allLinks.map((link, i) => (
+          {navLinks.map((link, i) => (
             <Link
               key={link.label}
               href={link.href}
