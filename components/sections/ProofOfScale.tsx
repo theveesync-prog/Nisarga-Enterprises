@@ -5,9 +5,9 @@ import MilestoneStack from "@/components/ui/MilestoneStack";
 
 export default function ProofOfScale() {
   return (
-    <section className="py-28 px-4 bg-white" id="proof-of-scale">
+    <section className="py-16 md:py-24 px-4 bg-white" id="proof-of-scale">
       <div className="max-w-5xl mx-auto">
-        <Reveal className="text-center mb-16">
+        <Reveal className="text-center mb-10 md:mb-12">
           <div className="section-label justify-center mb-3">Proof of Scale</div>
           <h2 className="text-3xl md:text-5xl font-bold text-[#18140f] tracking-tight">
             Built for the scale global brands <em className="accent">expect.</em>

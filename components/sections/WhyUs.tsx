@@ -26,9 +26,9 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-28 px-4 bg-white" id="why-us">
+    <section className="py-16 md:py-24 px-4 bg-white" id="why-us">
       <div className="max-w-4xl mx-auto">
-        <Reveal className="mb-16">
+        <Reveal className="mb-10 md:mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-[#18140f] max-w-lg tracking-tight">
             Why the most demanding brands work with <em className="accent">us.</em>
           </h2>
